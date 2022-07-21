@@ -2,5 +2,5 @@ import React from 'react'
 import '../App.css';
 
 export default function SignIn() {
-    return <h1 className='sign-in'>SIGN In</h1>;
+    return <h3>SignIn</h3>
 }
