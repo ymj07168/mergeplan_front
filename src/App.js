@@ -2,10 +2,10 @@ import React from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Home from './components/Pages/Home';
-import Services from './components/Pages/Services';
-import Products from './components/Pages/Products';
-import SignUp from './components/Pages/SignUp';
+import Home from './pages/Home';
+import Account from './pages/Account';
+import Planner from './pages/Planner';
+import SignUp from './pages/SignUp';
 
 function App() {
   return (
@@ -14,8 +14,8 @@ function App() {
         <Navbar />
         <Switch>
           <Route path='/' exact component={Home} />
-          <Route path='/services' component={Services} />
-          <Route path='/products' component={Products} />
+          <Route path='/account' component={Account} />
+          <Route path='/planner' component={Planner} />
           <Route path='/sign-up' component={SignUp} />
         </Switch>
       </Router>

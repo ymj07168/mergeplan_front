@@ -48,12 +48,12 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/services' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/account' className='nav-links' onClick={closeMobileMenu}>
                                 가계부
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/products' className='nav-links' onClick={closeMobileMenu}>
+                            <Link to='/planner' className='nav-links' onClick={closeMobileMenu}>
                                 플래너
                             </Link>
                         </li>
