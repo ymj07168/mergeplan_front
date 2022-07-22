@@ -5,16 +5,16 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-.home,
-.services,
-.products,
-.sign-up {
+/* .home,
+.account,
+.planner,
+.main_signup {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-}
+} */
 
 .account {
   /* background-image: url('https: //raw.githubusercontent.com/briancodex/react-website-v1/master/public/images/img-1.jpg'); */
@@ -46,7 +46,6 @@
 
 /*sign up (회원가입) -> 일단 로그인 페이지*/
 .main_signup {
-  width: 1000px;
   text-align: center;
   background-color: #e2eae8;
   padding: 20px;
@@ -56,7 +55,6 @@
 }
 
 .form-main {
-  width: 910px;
   margin-bottom: 10px;
   border: 0;
   border-radius: 5px;
