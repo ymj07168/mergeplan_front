@@ -58,12 +58,20 @@ function Navbar() {
                             </Link>
                         </li>
                         <li className='nav-item'>
-                            <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
+                            <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
                                 로그인
                             </Link>
                         </li>
+                        <li className='nav-item'>
+                            <Link to='/sign-up' className='nav-links-mobile' onClick={closeMobileMenu}>
+                                회원가입
+                            </Link>
+                        </li>
                     </ul>
-                    {button && <Button buttonStyle='btn--outline'>로그인</Button>}
+                    {button && <Link to='/sign-in' className='btn-mobile'><Button buttonStyle='btn--outline'>로그인</Button></Link>}
+                    {button && <Link to='/sign-up' className='btn-mobile'><Button buttonStyle='btn--outline'>회원가입</Button></Link>}
+
+
                 </div>
             </nav>
         </>

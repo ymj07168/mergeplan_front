@@ -34,18 +34,9 @@
   font-size: 100px;
 }
 
-.sign-in {
-  /* background-image: url('https: //raw.githubusercontent.com/briancodex/react-website-v1/master/public/images/img-8.jpg'); */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #000;
-  font-size: 50px;
-}
 
 
-/*sign up (회원가입) -> 일단 로그인 페이지*/
-.main_signup {
+.sign-container {
   text-align: center;
   background-color: #e2eae8;
   padding: 20px;
@@ -54,7 +45,7 @@
   margin-top: 50px;
 }
 
-.form-main {
+.sign-form {
   margin-bottom: 10px;
   border: 0;
   border-radius: 5px;
