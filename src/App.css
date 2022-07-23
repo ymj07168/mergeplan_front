@@ -5,16 +5,16 @@
   font-family: 'PT Sans', sans-serif;
 }
 
-/* .home,
+.home,
 .account,
 .planner,
-.main_signup {
+.sing-container {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
-} */
+}
 
 .account {
   /* background-image: url('https: //raw.githubusercontent.com/briancodex/react-website-v1/master/public/images/img-1.jpg'); */
