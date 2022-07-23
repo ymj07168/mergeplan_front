@@ -20,7 +20,7 @@ function Schedule() {
                 events={myEventList}
                 startAccessor="start"
                 endAccessor="end"
-                style={{ height: 500 }}
+                style={{ height: 600 }}
             // step={60}
             // view="month"
             // views={["month"]}

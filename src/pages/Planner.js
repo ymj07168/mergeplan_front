@@ -4,17 +4,17 @@ import Schedule from '../components/Schedule';
 
 export default function Planner() {
 
-    // const [test, setTest] = useState([]);
-    // const getTest = async () => {
-    //     const json = await (
-    //         await fetch('')
-    //     ).json();
-    //     setTest(json.data.test);
-    // };
-    // useEffect(() => {
-    //     getTest();
-    // }, []);
-    // console.log(test);
+    const [test, setTest] = useState([]);
+    const getTest = async () => {
+        const json = await (
+            await fetch(`http://localhost:3306/test`)
+        ).json();
+        setTest(json.data.test);
+    };
+    useEffect(() => {
+        getTest();
+    }, []);
+    console.log(test);
 
     return (
         <>
