@@ -1,31 +1,27 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css';
 import Schedule from '../components/Schedule';
+import axios from "axios";
 
 export default function Planner() {
 
-    const [test, setTest] = useState([]);
-    const getTest = async () => {
-        const json = await (
-            await fetch(`http://localhost:3306/test`)
-        ).json();
-        setTest(json.data.test);
-    };
+    const [test, setTest] = useState('');
+
     useEffect(() => {
-        getTest();
+        axios.get('/test')
+            .then(response => setTest(response.data))
+            .catch(error => console.log(error))
     }, []);
-    console.log(test);
+
 
     return (
         <>
             <Schedule />
-            {/* <div>
-                < h1 className='planner' >planner</h1 >
-                <p>
-                    이 페이지는 플래너 페이지입니다.
-                    planner
-                </p>
-            </div> */}
+            <button>일정 추가하기</button>
+            <button>일정 삭제하기</button>
+            <div>
+                백엔드에서 가져온 데이터입니다. : {test}
+            </div>
         </>
     );
 }
