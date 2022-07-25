@@ -78,7 +78,6 @@ export default function SignIn() {
                         <input type="submit" value="로그인하기" class="submit-btn"></input> <br></br>
                         <input type="button" value="아이디/비밀번호 찾기" class="submit-btn"></input> <br></br>
                         <input type="button" value="구글계정으로 로그인" class="submit-btnG"></input> <br></br>
-
                     </form>
                 </div>
             </div>

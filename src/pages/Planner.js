@@ -16,11 +16,14 @@ export default function Planner() {
 
     return (
         <>
-            <Schedule />
-            <button>일정 추가하기</button>
-            <button>일정 삭제하기</button>
-            <div>
-                백엔드에서 가져온 데이터입니다. : {test}
+
+            <div className='planner'>
+                <Schedule />
+                <button>일정 추가하기</button>
+                <button>일정 삭제하기</button>
+                <div>
+                    백엔드에서 가져온 데이터입니다. : {test}
+                </div>
             </div>
         </>
     );
