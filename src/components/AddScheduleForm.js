@@ -1,8 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css';
-import Schedule from './Schedule';
-import Modal from './Modal';
-import axios from "axios";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 
@@ -22,7 +19,7 @@ export default function AddScheduleForm() {
                 <table className='add-table'>
                     <tr>
                         <td>일정</td>
-                        <td colSpan={3}><input type="text" placeholder='제목'></input></td>
+                        <td colSpan={3}><input type="text" size="50" placeholder='제목'></input></td>
                     </tr>
                     <tr>
                         <td>시작</td>
@@ -49,7 +46,7 @@ export default function AddScheduleForm() {
                     <tr>
                         <td>분류</td>
                         <td colSpan={3}>
-                            <input type="radio" name="Types" value="work" />Work
+                            <input type="radio" name="Types" value="Work" />Work
                             <input type="radio" name="Types" value="Party" />Party
                             <input type="radio" name="Types" value="Shopping" />Shopping
                             <input type="radio" name="Types" value="Dining" />Dining
@@ -58,9 +55,11 @@ export default function AddScheduleForm() {
                     </tr>
                     <tr>
                         <td>장소</td>
+                        <td colSpan={3}><input type="text" size="50" name="location" /></td>
                     </tr>
                     <tr>
                         <td>설명</td>
+                        <td colSpan={3}><textarea rows="10" cols="50" name="comment"></textarea></td>
                     </tr>
                 </table>
             </form>
