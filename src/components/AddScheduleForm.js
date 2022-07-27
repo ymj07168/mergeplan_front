@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import '../App.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+import { flexbox } from '@mui/system';
 
 export default function AddScheduleForm() {
 
@@ -11,15 +12,25 @@ export default function AddScheduleForm() {
     const [endDate, setEndDate] = useState(new Date());
 
 
-
-
     return (
         <>
             <form>
+                {/* 일정 : <input type="text" placeholder='제목' style={{ width: 270 }} /><br />
+                시작 : <input type="datetime-local" style={{ width: 270 }} /><br />
+                종료 : <input type="datetime-local" style={{ width: 270 }} /><br />
+                분류 : <input type="radio" name="Types" value="Work" />Work
+                <input type="radio" name="Types" value="Party" />Party
+                <input type="radio" name="Types" value="Shopping" />Shopping
+                <input type="radio" name="Types" value="Dining" />Dining
+                <input type="radio" name="Types" value="Trip" />Trip<br />
+                장소 : <input type="text" style={{ width: 270 }} /><br />
+                설명 : <textarea name="comment" style={{ width: 270 }}></textarea> */}
+
+
                 <table className='add-table'>
                     <tr>
                         <td>일정</td>
-                        <td colSpan={3}><input type="text" size="50" placeholder='제목'></input></td>
+                        <td colSpan={3}><input type="text" placeholder='제목' size="50" /></td>
                     </tr>
                     <tr>
                         <td>시작</td>
