@@ -8,7 +8,7 @@
 /* .home,
 .account,
 .planner,
-.main_signup {
+.sing-container {
   display: flex;
   height: 90vh;
   align-items: center;
@@ -22,30 +22,25 @@
   background-size: fill;
   background-repeat: no-repeat;
   color: #000;
-  font-size: 100px;
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 .planner {
   /* background-image: url('https: //raw.githubusercontent.com/briancodex/react-website-v1/master/public/images/img-2.jpg'); */
   background-position: center;
-  background-size: cover;
+  background-size: fill;
   background-repeat: no-repeat;
   color: #000;
-  font-size: 100px;
-}
-
-.sign-in {
-  /* background-image: url('https: //raw.githubusercontent.com/briancodex/react-website-v1/master/public/images/img-8.jpg'); */
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #000;
-  font-size: 50px;
+  margin-top: 30px;
+  margin-left: 100px;
+  margin-right: 100px;
 }
 
 
-/*sign up (회원가입) -> 일단 로그인 페이지*/
-.main_signup {
+/* sign 페이지 css */
+.sign-container {
   text-align: center;
   background-color: #e2eae8;
   padding: 20px;
@@ -54,7 +49,7 @@
   margin-top: 50px;
 }
 
-.form-main {
+.sign-form {
   margin-bottom: 10px;
   border: 0;
   border-radius: 5px;
@@ -91,5 +86,29 @@
   border-radius: 5px;
   padding: 10px;
   width: 300px;
+}
 
+.account-header {
+  display: flex;
+  width: 100%;
+}
+
+.account-month {
+  text-align: center;
+  width: 35%;
+  margin: 10px;
+  font-size: 30px;
+
+}
+
+.account-total {
+  text-align: center;
+  width: 35%;
+  margin: 10px;
+
+}
+
+.account-addbtn {
+  width: 30%;
+  margin: 10px;
 }

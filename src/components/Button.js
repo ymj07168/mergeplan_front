@@ -14,15 +14,15 @@ export const Button = ({ children, type, onClick, buttonStyle, buttonSize }) => 
 
     return (
         // children안에 어떤 내용을 입력해도 버튼 이름이 된다. 
-        <Link to='/sign-up' className='btn-mobile'>
-            <button
-                className={`btn ${checkButtonStyle} ${checkButtonSize}`}
-                onClick={onClick}
-                type={type}
-            >
-                {children}
-            </button>
-        </Link>
+        // <Link to='/' className='btn-mobile'>
+        <button
+            className={`btn ${checkButtonStyle} ${checkButtonSize}`}
+            onClick={onClick}
+            type={type}
+        >
+            {children}
+        </button>
+        // </Link>
     );
 
 };
