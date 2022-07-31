@@ -38,6 +38,9 @@ export default function Planner() {
                 <div>
                     백엔드에서 가져온 데이터입니다. : {test}
                 </div>
+                <div>
+
+                </div>
             </div>
         </>
     );
