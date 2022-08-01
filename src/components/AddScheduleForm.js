@@ -14,11 +14,15 @@ export default function AddScheduleForm(props) {
     }
     const onSdSubmit = (e) => {
         e.preventDefault();
+        // props.history.push('/')
+
         axios.post('/test', {
             title,
         }).then(res => console.log('Posting data', res)).catch(err => console.log(err))
 
-        props.history.push('/')
+        // props.history.push('/')
+
+
         // if (res.payload.loginSuccess) {
         //     props.history.push('/')
         // } else {
