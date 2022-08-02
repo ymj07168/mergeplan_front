@@ -123,8 +123,7 @@
   text-align: center;
   width: 35%;
   margin: 10px;
-  font-size: 30px;
-
+  font-size: 25px;
 }
 
 .account-total {
@@ -133,6 +132,7 @@
   margin: 10px;
 
 }
+
 
 .account-addbtn {
   width: 30%;
@@ -171,4 +171,9 @@
   background: rgba(107, 157, 134, 0.9);
   cursor: pointer;
   box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+=======
+
+.account-addbtn {
+  width: 30%;
+  margin: 10px;
 }

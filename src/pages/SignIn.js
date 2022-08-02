@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react'
+
+import React, { useState } from 'react'
 import '../App.css';
 import axios from 'axios';
-// function
+
+
 
 export default function SignIn() {
 
@@ -16,45 +18,56 @@ export default function SignIn() {
         setPw(e.target.value)
     }
 
-
     const onClickLogin = (e) => {
         e.preventDefault();
-        let body = {
-            id: Id,
-            password: Pw,
-        }
-        if (Pw == "1111") {
-            alert("로그인되었습니다.");
-        } else {
-            alert("비밀번호가 일치하지 않습니다.")
+
+        let bodys = {
+            username: Id,
+            password: Pw
         }
 
-        axios.post('/test', body)
-            .then(response => {
+        // const dispatcher = useDispatch();
+        // const [member, setMember] = useState({
+        //     loginId: "",
+        //     password: "",
+        // });
 
+        // axios.post('/login', body)
+        //     //.then(res => console.log('Login data', body))
+        //     .then((result) => {
+        //         //var status = result['status']
+        //         //console.log("test " + status)
+        //         console.log(result)
+        //     })
+        //     .catch(err => console.log(err))
+
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: bodys,
+        })
+            .then((result) => {
+                console.log(result)
+                console.log(result.payload)
             })
     }
-
 
     return (
         <>
             <div className="sign-container">
-                <h3>****로그인</h3>
+                <h3>***로그인</h3>
                 <div className='sign-form'>
                     <form>
-                        <input type="text" name="id" class="text-field" value={Id} size="80" id="userid" onChange={onIdHandler} placeholder="아이디"></input> <br></br>
-                        <input type="password" name="password" class="text-field" value={Pw} size="80" id="userpw" onChange={onPwHandler} placeholder="비밀번호"></input> <br></br>
-                        <button type="submit" value="로그인하기" class="submit-btn" onClick={onClickLogin}>로그인하기</button> <br></br>
-                        <input type="button" value="아이디/비밀번호 찾기" class="submit-btn"></input> <br></br>
-                        <button type="button" value="구글계정으로 로그인" class="submit-btnG">구글계정으로 로그인</button> <br></br>
-                        <div>
-                            아이디 : {Id} <br></br>
-                            비밀번호 : {Pw}
-                        </div>
+                        <input type="text" name="id" className="text-field" size="80" id="userid" placeholder="아이디" onChange={onIdHandler}></input> <br></br>
+                        <input type="password" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
+                        <input type="submit" value="로그인하기" onClick={onClickLogin} className="submit-btn"></input> <br></br>
+                        <input type="button" value="아이디/비밀번호 찾기" className="submit-btn"></input> <br></br>
+                        <input type="button" value="구글계정으로 로그인" className="submit-btnG"></input> <br></br>
                     </form>
                 </div>
             </div>
-
         </>
 
     );

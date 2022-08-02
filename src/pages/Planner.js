@@ -22,7 +22,12 @@ export default function Planner() {
 
     useEffect(() => {
         axios.get('/test')
-            .then(response => setTest(response.data))
+            .then(
+                response => {
+                    console.log(response)
+                    setTest(response.data)
+                }
+            )
             .catch(error => console.log(error))
     }, []);
 
@@ -32,6 +37,7 @@ export default function Planner() {
             <div className='planner'>
                 <Schedule />
                 <button className='add-plan-btn' onClick={openModal}>일정 추가하기</button>
+
                 <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
                     <AddScheduleForm />
                 </Modal>

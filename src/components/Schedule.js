@@ -21,12 +21,6 @@ function Schedule() {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 600 }}
-            // step={60}
-            // view="month"
-            // views={["month"]}
-            // min={new Date(2008, 0, 1, 8, 0)}
-            // max={new Date(2008, 0, 1, 17, 0)}
-            // date={new Date(2019, 1, 20)}
             />
         </div>
     )

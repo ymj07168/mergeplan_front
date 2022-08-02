@@ -68,6 +68,9 @@ export default function Account() {
                 <h1>Account</h1>
                 <History />
                 <p>
+
+                    이 페이지는 가계부 페이지입니다.
+                    account
                 </p>
             </div>
         </>
