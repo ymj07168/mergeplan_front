@@ -37,7 +37,6 @@ export default function SignUp() {
             username: Id,
             password: Pw,
             cpassword: CPW,
-            username: Name,
             birthday: Date
         }
         // if (Pw == "1111") {
