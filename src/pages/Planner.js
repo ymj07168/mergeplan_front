@@ -22,7 +22,12 @@ export default function Planner() {
 
     useEffect(() => {
         axios.get('/test')
-            .then(response => setTest(response.data))
+            .then(
+                response => {
+                    console.log(response)
+                    setTest(response.data)
+                }
+            )
             .catch(error => console.log(error))
     }, []);
 

@@ -6,7 +6,6 @@ import axios from 'axios';
 
 export default function AddScheduleForm(props) {
 
-
     const [title, setTitle] = useState("");
 
     const onSdHandler = (e) => {
@@ -16,9 +15,8 @@ export default function AddScheduleForm(props) {
         e.preventDefault();
         // props.history.push('/')
 
-        axios.post('/test', {
-            title,
-        }).then(res => console.log('Posting data', res)).catch(err => console.log(err))
+        axios.get('/test')
+            .then(res => console.log('Posting data', res)).catch(err => console.log(err))
 
         // props.history.push('/')
 
