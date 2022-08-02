@@ -21,9 +21,6 @@ function Schedule() {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 600 }}
-
-            // popup={false}
-            // onShowMore={(events, date) => this.setState({ showModal: true, events })}
             />
         </div>
     )

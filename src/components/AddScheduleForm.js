@@ -30,11 +30,9 @@ export default function AddScheduleForm(props) {
     }
 
 
-
     // 일정 날짜 설정하기 -> datepicker, radio
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
-
 
 
     return (
@@ -44,6 +42,7 @@ export default function AddScheduleForm(props) {
                     <tr>
                         <td>일정</td>
                         <td colSpan={3}><input type="text" placeholder='제목' size="50" name="title" value={title} onChange={onSdHandler} /></td>
+
                     </tr>
                     <tr>
                         <td>시작</td>
@@ -87,6 +86,7 @@ export default function AddScheduleForm(props) {
                     </tr>
                 </table>
                 <input type="submit" id="btn-add-schedule" value="일정추가" />
+
             </form>
 
         </>
