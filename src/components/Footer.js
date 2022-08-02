@@ -25,18 +25,18 @@ function Footer() {
                 <div className='footer-link-wrapper'>
                     <div class='footer-link-items'>
                         <h2>About Us</h2>
-                        <Link to='/sign-up'>How it works</Link>
-                        <Link to='/'>Testimonials</Link>
-                        <Link to='/'>Careers</Link>
-                        <Link to='/'>Investors</Link>
-                        <Link to='/'>Terms of Service</Link>
+                        <p>ITs</p>
+                        <p>_Back</p>
+                        <p>IT Eunseo Go</p>
+                        <p>IT Chayeon Han</p>
+                        <p>_Front</p>
+                        <p>IT Hyowon Lee</p>
+                        <p>IT Dayoung Choi</p>
                     </div>
                     <div class='footer-link-items'>
-                        <h2>Contact Us</h2>
-                        <Link to='/'>Contact</Link>
-                        <Link to='/'>Support</Link>
-                        <Link to='/'>Destinations</Link>
-                        <Link to='/'>Sponsorships</Link>
+                        <h2>Belong To</h2>
+                        <p>SookMyung Women's University</p>
+                        <p>SOLUX</p>
                     </div>
                 </div>
                 <div className='footer-link-wrapper'>
