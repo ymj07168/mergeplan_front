@@ -13,26 +13,31 @@ export default function AddScheduleForm(props) {
     }
     const onSdSubmit = (e) => {
         e.preventDefault();
-        // props.history.push('/')
 
-        axios.get('/test')
-            .then(res => console.log('Posting data', res)).catch(err => console.log(err))
+        let data = JSON.stringify({
+            "allday": 0,
+            "title": "",
+            "description": "설명"
+        })
 
-        // props.history.push('/')
+        let config = {
+            headers : {
+                'Authorization' : sessionStorage.getItem('token'),
+                'content-type' : 'application/json;charset=UTF-8'
+            }
+        }
 
-
-        // if (res.payload.loginSuccess) {
-        //     props.history.push('/')
-        // } else {
-        //     alert("Error")
-        // }
-
+        axios.post('/auth/planner', data, config)
+        .then((result) => {
+            console.log(result)
+        })
+        .catch(err => console.log(err))
     }
-
 
     // 일정 날짜 설정하기 -> datepicker, radio
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
+
 
 
     return (
@@ -42,7 +47,6 @@ export default function AddScheduleForm(props) {
                     <tr>
                         <td>일정</td>
                         <td colSpan={3}><input type="text" placeholder='제목' size="50" name="title" value={title} onChange={onSdHandler} /></td>
-
                     </tr>
                     <tr>
                         <td>시작</td>
@@ -86,7 +90,6 @@ export default function AddScheduleForm(props) {
                     </tr>
                 </table>
                 <input type="submit" id="btn-add-schedule" value="일정추가" />
-
             </form>
 
         </>
