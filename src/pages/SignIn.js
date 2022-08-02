@@ -1,8 +1,6 @@
-
 import React, { useState } from 'react'
 import '../App.css';
 import axios from 'axios';
-
 
 
 export default function SignIn() {
@@ -21,37 +19,39 @@ export default function SignIn() {
     const onClickLogin = (e) => {
         e.preventDefault();
 
-        let bodys = {
+        let data = {
             username: Id,
             password: Pw
         }
 
-        // const dispatcher = useDispatch();
-        // const [member, setMember] = useState({
-        //     loginId: "",
-        //     password: "",
-        // });
-
-        // axios.post('/login', body)
-        //     //.then(res => console.log('Login data', body))
-        //     .then((result) => {
-        //         //var status = result['status']
-        //         //console.log("test " + status)
-        //         console.log(result)
-        //     })
-        //     .catch(err => console.log(err))
-
-        fetch("/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: bodys,
+        axios.post('/login', data)
+        .then((result) => {
+            //console.log(result.status)
+            if (result.status == 200){
+                alert('로그인')
+                sessionStorage.setItem('token', result.headers.authorization)
+                //console.log(sessionStorage.getItem('token'))
+                // action or redirect
+            }else{
+                alert('로그인 불가')
+            }
         })
-            .then((result) => {
-                console.log(result)
-                console.log(result.payload)
-            })
+        .catch(err => console.log(err))
+
+        // session test
+        // let config = {
+        //     headers : {
+        //         'Authorization' : sessionStorage.getItem('token'),
+        //         'content-type' : 'application/json;charset=UTF-8'
+        //     }
+        // }
+
+        // axios.get('/api/v1/user', config)
+        // .then((result) => {
+        //     console.log(result.data)
+        // })
+        // .catch(err => console.log(err))
+
     }
 
     return (
@@ -69,6 +69,5 @@ export default function SignIn() {
                 </div>
             </div>
         </>
-
     );
 }
