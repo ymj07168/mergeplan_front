@@ -21,9 +21,9 @@ function Footer() {
                     </form>
                 </div>
             </section>
-            <div class='footer-links'>
+            <div className='footer-links'>
                 <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>About Us</h2>
                         <Link to='/sign-up'>How it works</Link>
                         <Link to='/'>Testimonials</Link>
@@ -31,7 +31,7 @@ function Footer() {
                         <Link to='/'>Investors</Link>
                         <Link to='/'>Terms of Service</Link>
                     </div>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Contact Us</h2>
                         <Link to='/'>Contact</Link>
                         <Link to='/'>Support</Link>
@@ -40,14 +40,14 @@ function Footer() {
                     </div>
                 </div>
                 <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Videos</h2>
                         <Link to='/'>Submit Video</Link>
                         <Link to='/'>Ambassadors</Link>
                         <Link to='/'>Agency</Link>
                         <Link to='/'>Influencer</Link>
                     </div>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Social Media</h2>
                         <Link to='/'>Instagram</Link>
                         <Link to='/'>Facebook</Link>
@@ -77,28 +77,28 @@ function Footer() {
                         >
                             <i className="fab fa-instagram"></i>
                         </Link>
-                        <Link class='social-icon-link youtube'
+                        <Link className='social-icon-link youtube'
                             to='/'
                             target='_blank'
                             aria-label='Youtube'
                         >
-                            <i class='fab fa-youtube' />
+                            <i className='fab fa-youtube' />
                         </Link>
                         <Link
-                            class='social-icon-link twitter'
+                            className='social-icon-link twitter'
                             to='/'
                             target='_blank'
                             aria-label='Twitter'
                         >
-                            <i class='fab fa-twitter' />
+                            <i className='fab fa-twitter' />
                         </Link>
                         <Link
-                            class='social-icon-link twitter'
+                            className='social-icon-link twitter'
                             to='/'
                             target='_blank'
                             aria-label='LinkedIn'
                         >
-                            <i class='fab fa-linkedin' />
+                            <i className='fab fa-linkedin' />
                         </Link>
                     </div>
                 </div>
