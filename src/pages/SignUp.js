@@ -33,7 +33,7 @@ export default function SignUp() {
     const onClickJoin = (e) => {
         e.preventDefault();
         let body = {
-            ussername_k: Name,
+            username_k: Name,
             username: Id,
             password: Pw,
             cpassword: CPW,
