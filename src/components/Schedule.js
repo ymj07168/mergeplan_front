@@ -1,16 +1,40 @@
+import { render } from "@testing-library/react";
 import moment from "moment";
-import React from "react";
+import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import Modal from "./Modal";
 
 
 function Schedule() {
+
+    const [modalOpen, setModalOpen] = useState(false);
+    const openModal = (e) => {
+        console.log(e.start)
+        setModalOpen(true);
+    };
+    const closeModal = () => {
+        setModalOpen(false);
+    }
+
+
     moment.locale('ko-KR');
     const localizer = momentLocalizer(moment);
 
     const myEventList = [
         { start: new Date(), end: new Date(), title: "special event" }
     ];
+
+    const handleSelectEvent = (e) => {
+        // console.log(e.start)
+        // setModalOpen(true);
+        // return (
+        //     <>
+        //         <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
+        //         </Modal>
+        //     </>
+        // )
+    }
 
     // Calendar.momentLocalizer(moment);
     return (
@@ -21,7 +45,13 @@ function Schedule() {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 600 }}
+                // onSelectEvent={event =>
+                //     alert(event.title)}
+                onSelectEvent={openModal}
             />
+            <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
+
+            </Modal>
         </div>
     )
 }
