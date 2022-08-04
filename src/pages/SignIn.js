@@ -19,10 +19,27 @@ export default function SignIn() {
     const onClickLogin = (e) => {
         e.preventDefault();
 
-        let bodys = {
+        let data = {
             username: Id,
             password: Pw
         }
+
+        axios.post('/login', data)
+            //.then(res => console.log('Login data', body))
+            .then((result) => {
+                //var status = result['status']
+                //console.log("test " + status)
+                // console.log(result)
+                if (result.status == 200) {
+                    alert('로그인')
+                    sessionStorage.setItem('token', result.headers.authorization)
+                    //console.log(sessionStorage.getItem('token'))
+                    // action or redirect
+                } else {
+                    alert('로그인 불가')
+                }
+            })
+            .catch(err => console.log(err))
 
         // const dispatcher = useDispatch();
         // const [member, setMember] = useState({
@@ -30,26 +47,17 @@ export default function SignIn() {
         //     password: "",
         // });
 
-        // axios.post('/login', body)
-        //     //.then(res => console.log('Login data', body))
+        // fetch("/login", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: bodys,
+        // })
         //     .then((result) => {
-        //         //var status = result['status']
-        //         //console.log("test " + status)
         //         console.log(result)
+        //         console.log(result.payload)
         //     })
-        //     .catch(err => console.log(err))
-
-        fetch("/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: bodys,
-        })
-            .then((result) => {
-                console.log(result)
-                console.log(result.payload)
-            })
     }
 
     return (

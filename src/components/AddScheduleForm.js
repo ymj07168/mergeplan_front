@@ -15,7 +15,11 @@ export default function AddScheduleForm(props) {
         e.preventDefault();
         // props.history.push('/')
 
-        axios.get('/test')
+        let data = {
+
+        }
+
+        axios.post('/auth/planner', title)
             .then(res => console.log('Posting data', res)).catch(err => console.log(err))
 
         // props.history.push('/')
