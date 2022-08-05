@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 
 
-export default function SignIn() {
+export default function SignIn(props) {
 
     const [Id, setId] = useState('')
     const [Pw, setPw] = useState('')
@@ -38,6 +38,7 @@ export default function SignIn() {
                 if (result.status == 200) {
                     alert('로그인')
                     sessionStorage.setItem('token', result.headers.authorization)
+                    props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
                 } else if (result.status == 401) {
@@ -48,9 +49,6 @@ export default function SignIn() {
             })
             .catch((err) => {
                 console.log(err)
-                if (err.status == 500) {
-                    alert('없는 아이디입니다.')
-                }
             })
 
         // session test

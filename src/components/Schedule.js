@@ -25,12 +25,20 @@ function Schedule() {
         { start: new Date(), end: new Date(), title: "special event" }
     ];
 
+    const [title, setTitle] = useState('');
+    // const [startDate, setStart] = useState(new Date());
+    // const [endDate, setEnd] = useState(new Date());
+
     const handleSelectEvent = (e) => {
         console.log(e.start)
 
         console.log(e.title)
 
         setModalOpen(true);
+
+        setTitle(e.title);
+
+
         return (
             <>
                 {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
@@ -53,10 +61,9 @@ function Schedule() {
                 //     alert(event.title)}
                 onSelectEvent={handleSelectEvent}
             />
-            <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-                일정: { }
-                시작: { }
-                끝: { }
+            <Modal open={modalOpen} close={closeModal} header="일정 추가하기" >
+                일정: {title}
+
             </Modal>
 
         </div>
