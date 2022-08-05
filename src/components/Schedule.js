@@ -27,6 +27,7 @@ function Schedule() {
 
     const [title, setTitle] = useState('');
 
+
     const handleSelectEvent = (e) => {
         console.log(e.start)
         setModalOpen(true);
@@ -37,6 +38,7 @@ function Schedule() {
                 {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
                 </Modal> */}
             </>
+
 
         )
     }

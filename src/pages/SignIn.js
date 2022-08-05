@@ -32,8 +32,12 @@ export default function SignIn(props) {
         }
 
         axios.post('/login', data)
+
             //.then(res => console.log('Login data', body))
+
             .then((result) => {
+                console.log(result.status)
+                console.log(data)
 
                 if (result.status == 200) {
                     alert('로그인')
@@ -41,11 +45,6 @@ export default function SignIn(props) {
                     props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
-                } else {
-                    alert('로그인 불가')
-                }
-            })
-            .catch(err => console.log(err))
 
         // const dispatcher = useDispatch();
         // const [member, setMember] = useState({
@@ -64,6 +63,30 @@ export default function SignIn(props) {
         //         console.log(result)
         //         console.log(result.payload)
         //     })
+
+                } else if (result.status == 400) {
+                    alert('로그인 불가')
+                }
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+
+        // session test
+        // let config = {
+        //     headers : {
+        //         'Authorization' : sessionStorage.getItem('token'),
+        //         'content-type' : 'application/json;charset=UTF-8'
+        //     }
+        // }
+
+        // axios.get('/api/v1/user', config)
+        // .then((result) => {
+        //     console.log(result.data)
+        // })
+        // .catch(err => console.log(err))
+
+
     }
 
     return (

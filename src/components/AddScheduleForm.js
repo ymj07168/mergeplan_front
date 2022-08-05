@@ -42,8 +42,6 @@ export default function AddScheduleForm(props) {
 
     }
 
-
-
     // 일정 날짜 설정하기 -> datepicker, radio
     const [startDate, setStartDate] = useState(new Date());
     const [endDate, setEndDate] = useState(new Date());
