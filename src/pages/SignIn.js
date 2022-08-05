@@ -3,7 +3,7 @@ import '../App.css';
 import axios from 'axios';
 
 
-export default function SignIn() {
+export default function SignIn(props) {
 
     const [Id, setId] = useState('')
     const [Pw, setPw] = useState('')
@@ -33,6 +33,7 @@ export default function SignIn() {
                 if (result.status == 200) {
                     alert('로그인')
                     sessionStorage.setItem('token', result.headers.authorization)
+                    // props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
                 } else {
