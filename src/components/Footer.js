@@ -34,7 +34,7 @@ function Footer() {
                         <p>IT Dayoung Choi</p>
                     </div>
 
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Belong To</h2>
                         <p>SookMyung Women's University</p>
                         <p>SOLUX</p>

@@ -2,10 +2,11 @@
 import React, { useState } from 'react'
 import '../App.css';
 import axios from 'axios';
+import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory';
 
 
 
-export default function SignIn() {
+export default function SignIn(props) {
 
     const [Id, setId] = useState('')
     const [Pw, setPw] = useState('')
@@ -34,7 +35,9 @@ export default function SignIn() {
                 // console.log(result)
                 if (result.status == 200) {
                     alert('로그인')
+                    props.history.push('/')
                     sessionStorage.setItem('token', result.headers.authorization)
+
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
                 } else {
