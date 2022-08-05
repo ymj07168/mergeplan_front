@@ -32,6 +32,9 @@ export default function SignIn(props) {
         }
 
         axios.post('/login', data)
+
+            //.then(res => console.log('Login data', body))
+
             .then((result) => {
                 console.log(result.status)
                 console.log(data)
@@ -42,6 +45,25 @@ export default function SignIn(props) {
                     props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
+
+        // const dispatcher = useDispatch();
+        // const [member, setMember] = useState({
+        //     loginId: "",
+        //     password: "",
+        // });
+
+        // fetch("/login", {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //     },
+        //     body: bodys,
+        // })
+        //     .then((result) => {
+        //         console.log(result)
+        //         console.log(result.payload)
+        //     })
+
                 } else if (result.status == 400) {
                     alert('로그인 불가')
                 }
@@ -63,6 +85,7 @@ export default function SignIn(props) {
         //     console.log(result.data)
         // })
         // .catch(err => console.log(err))
+
 
     }
 

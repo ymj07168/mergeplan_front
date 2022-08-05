@@ -26,25 +26,20 @@ function Schedule() {
     ];
 
     const [title, setTitle] = useState('');
-    // const [startDate, setStart] = useState(new Date());
-    // const [endDate, setEnd] = useState(new Date());
+
 
     const handleSelectEvent = (e) => {
         console.log(e.start)
-
-        console.log(e.title)
-
         setModalOpen(true);
 
         setTitle(e.title);
-
-
         return (
             <>
                 {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-
                 </Modal> */}
             </>
+
+
         )
     }
 
@@ -65,7 +60,6 @@ function Schedule() {
                 일정: {title}
 
             </Modal>
-
         </div>
     )
 }

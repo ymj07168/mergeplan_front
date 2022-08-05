@@ -21,17 +21,25 @@ export default function AddScheduleForm(props) {
         })
 
         let config = {
-            headers : {
-                'Authorization' : sessionStorage.getItem('token'),
-                'content-type' : 'application/json;charset=UTF-8'
+            headers: {
+                'Authorization': sessionStorage.getItem('token'),
+                'content-type': 'application/json;charset=UTF-8'
             }
         }
 
         axios.post('/auth/planner', data, config)
-        .then((result) => {
-            console.log(result)
-        })
-        .catch(err => console.log(err))
+            .then((result) => {
+                console.log(result)
+            })
+            .catch(err => console.log(err))
+
+
+        // if (res.payload.loginSuccess) {
+        //     props.history.push('/')
+        // } else {
+        //     alert("Error")
+        // }
+
     }
 
     // 일정 날짜 설정하기 -> datepicker, radio

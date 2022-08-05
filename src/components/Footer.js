@@ -1,6 +1,5 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import { Button } from './Button';
 import './Footer.css';
 
 function Footer() {
@@ -8,11 +7,12 @@ function Footer() {
         <div className='footer-container'>
             <section className="footer-subscription">
                 <p className="footer-subscription-heading">
-                    Join the Adventure mergeplan!
+                    Join the Adventure MergePlan!
                 </p>
-                {/* <p className="footer-subscription-text">
+                <p className="footer-subscription-text">
                     You can unsubscribe at any time.
-                </p> */}
+
+                </p>
                 {/* <div className="input-areas">
                     <form>
                         <input type="email" name="email" placeholder="Your Email"
@@ -25,6 +25,14 @@ function Footer() {
                 <div className='footer-link-wrapper'>
                     <div className='footer-link-items'>
                         <h2>About Us</h2>
+
+                        {/* <Link to='/sign-up'>How it works</Link>
+                        <Link to='/'>Testimonials</Link>
+                        <Link to='/'>Careers</Link>
+                        <Link to='/'>Investors</Link>
+                        <Link to='/'>Terms of Service</Link> */}
+
+
                         <p>ITs</p>
                         <p>_Back</p>
                         <p>IT Eunseo Go</p>
@@ -33,21 +41,18 @@ function Footer() {
                         <p>IT Hyowon Lee</p>
                         <p>IT Dayoung Choi</p>
                     </div>
-
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
+                        {/* <h2>Contact Us</h2>
+                        <Link to='/'>Contact</Link>
+                        <Link to='/'>Support</Link>
+                        <Link to='/'>Destinations</Link>
+                        <Link to='/'>Sponsorships</Link> */}
                         <h2>Belong To</h2>
                         <p>SookMyung Women's University</p>
                         <p>SOLUX</p>
 
-                        <div className='footer-link-items'>
-                            <h2>Contact Us</h2>
-                            <Link to='/'>Contact</Link>
-                            <Link to='/'>Support</Link>
-                            <Link to='/'>Destinations</Link>
-                            <Link to='/'>Sponsorships</Link>
-
-                        </div>
                     </div>
+
                     <div className='footer-link-wrapper'>
                         <div className='footer-link-items'>
                             <h2>Videos</h2>

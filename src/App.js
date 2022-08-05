@@ -8,17 +8,20 @@ import Planner from './pages/Planner';
 import SignIn from './pages/SignIn';
 import SignUp from './pages/SignUp';
 
+import PrivateRoute from "./lib/PrivateRoute";
+import PublicRoute from './lib/PublicRoute';
+
 function App() {
   return (
     <>
       <Router>
         <Navbar />
         <Switch>
-          <Route path='/' exact component={Home} />
-          <Route path='/account' component={Account} />
-          <Route path='/planner' component={Planner} />
-          <Route path='/sign-in' component={SignIn} />
-          <Route path='/sign-up' component={SignUp} />
+          <PublicRoute component={Home} path='/' exact />
+          <PrivateRoute component={Account} path='/account' exact />
+          <PrivateRoute component={Planner} path='/planner' exact />
+          <PublicRoute restricted component={SignIn} path='/sign-in' exact />
+          <PublicRoute restricted component={SignUp} path='/sign-up' exact />
           {/* <Route path='/sign-up' component={SignUp} /> */}
         </Switch>
       </Router>
