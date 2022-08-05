@@ -35,16 +35,15 @@ export default function SignIn(props) {
             .then((result) => {
                 console.log(result.status)
                 console.log(data)
+
                 if (result.status == 200) {
                     alert('로그인')
                     sessionStorage.setItem('token', result.headers.authorization)
                     props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
-                } else if (result.status == 401) {
-                    alert('비밀번호 오류')
-                } else if (result.status == 500) {
-                    alert('없는 아이디입니다.')
+                } else {
+                    alert('로그인 불가')
                 }
             })
             .catch((err) => {
