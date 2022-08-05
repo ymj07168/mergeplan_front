@@ -9,10 +9,10 @@ import Modal from "./Modal";
 function Schedule() {
 
     const [modalOpen, setModalOpen] = useState(false);
-    const openModal = (e) => {
-        console.log(e.start)
-        setModalOpen(true);
-    };
+    // const openModal = (e) => {
+    //     console.log(e.start)
+    //     setModalOpen(true);
+    // };
     const closeModal = () => {
         setModalOpen(false);
     }
@@ -26,14 +26,18 @@ function Schedule() {
     ];
 
     const handleSelectEvent = (e) => {
-        // console.log(e.start)
-        // setModalOpen(true);
-        // return (
-        //     <>
-        //         <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-        //         </Modal>
-        //     </>
-        // )
+        console.log(e.start)
+
+        console.log(e.title)
+
+        setModalOpen(true);
+        return (
+            <>
+                {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
+
+                </Modal> */}
+            </>
+        )
     }
 
     // Calendar.momentLocalizer(moment);
@@ -47,11 +51,14 @@ function Schedule() {
                 style={{ height: 600 }}
                 // onSelectEvent={event =>
                 //     alert(event.title)}
-                onSelectEvent={openModal}
+                onSelectEvent={handleSelectEvent}
             />
             <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-
+                일정: { }
+                시작: { }
+                끝: { }
             </Modal>
+
         </div>
     )
 }
