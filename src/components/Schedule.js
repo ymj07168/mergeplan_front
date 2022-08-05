@@ -1,3 +1,4 @@
+import axios from "axios";
 import moment from "moment";
 import React from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
@@ -11,6 +12,12 @@ function Schedule() {
     const myEventList = [
         { start: new Date(), end: new Date(), title: "special event" }
     ];
+
+
+
+    axios.post('/',)
+
+
 
     // Calendar.momentLocalizer(moment);
     return (
