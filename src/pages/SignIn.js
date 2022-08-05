@@ -24,9 +24,18 @@ export default function SignIn() {
             password: Pw
         }
 
+        if (!Id) {
+            return alert("아이디를 입력하세요.");
+        }
+        else if (!Pw) {
+            return alert("비밀번호를 입력하세요.");
+        }
+
         axios.post('/login', data)
             .then((result) => {
-                //console.log(result.status)
+                console.log(result.status)
+                console.log(data)
+
                 if (result.status == 200) {
                     alert('로그인')
                     sessionStorage.setItem('token', result.headers.authorization)
@@ -36,7 +45,12 @@ export default function SignIn() {
                     alert('로그인 불가')
                 }
             })
-            .catch(err => console.log(err))
+            .catch((err) => {
+                console.log(err)
+                if (err.status == 500) {
+                    alert('없는 아이디입니다.')
+                }
+            })
 
         // session test
         // let config = {

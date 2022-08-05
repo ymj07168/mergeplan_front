@@ -62,18 +62,17 @@ export default function SignUp() {
                 <div className='sign-form'>
                     <form>
 
-                        <input type="text" name="username_k" class="text-field" size="80" id="userName" placeholder="이름" onChange={onNameHandler}></input> <br></br>
-                        <input type="text" name="username" class="text-field" size="80" id="userId" placeholder="아이디" onChange={onIdHandler}></input> <br></br>
-                        <input type="password" name="password" class="text-field" size="80" id="userPw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
-                        <input type="password" name="password" class="text-field" size="80" id="userCpw" placeholder="비밀번호 확인" onChange={onCPwHandler}></input> <br></br>
-                        <input type="date" name="birthday" class="text-field" size="80" id="userDate" placeholder='생년월일' onChange={onDateHandler} /><br />
+                        <input type="text" name="username_k" className="text-field" size="80" id="userName" placeholder="이름" onChange={onNameHandler}></input> <br></br>
+                        <input type="text" name="username" className="text-field" size="80" id="userId" placeholder="아이디" onChange={onIdHandler}></input> <br></br>
+                        <input type="password" name="password" className="text-field" size="80" id="userPw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
+                        <input type="password" name="password" className="text-field" size="80" id="userCpw" placeholder="비밀번호 확인" onChange={onCPwHandler}></input> <br></br>
+                        <input type="date" name="birthday" className="text-field" size="80" id="userDate" onChange={onDateHandler} /><br />
 
 
                         <input type="checkbox" name="idSave" value="save" />서비스 약관에 동의합니다. <br></br>
-                        <input type="submit" value="가입하기" class="submit-btn" onClick={onClickJoin}></input> <br></br>
-                        <input type="button" value="구글계정으로 로그인" class="submit-btnG" ></input> <br></br>
+                        <input type="submit" value="가입하기" className="submit-btn" onClick={onClickJoin}></input> <br></br>
+                        <input type="button" value="구글계정으로 로그인" className="submit-btnG" ></input> <br></br>
                     </form>
-                    {/* <TextField label="Email Address" required fullWidth name="email" autoComplete="email" /> */}
                 </div>
             </div>
         </>
