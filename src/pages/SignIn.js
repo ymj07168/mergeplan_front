@@ -42,7 +42,7 @@ export default function SignIn(props) {
                     props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
-                } else {
+                } else if (result.status == 400) {
                     alert('로그인 불가')
                 }
             })
