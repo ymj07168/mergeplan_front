@@ -9,7 +9,6 @@ import AddAcountForm from '../components/AddAccountForm';
 
 export default function Account() {
 
-    const [startDate, setStartDate] = useState(new Date());
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("20,000");
@@ -44,25 +43,6 @@ export default function Account() {
                         <AddAcountForm />
                     </Modal>
                 </div>
-                {/* <table style={{
-                    tableLayout: "fixed", textAlign: "center", width: "100%"
-                }}>
-                    <td>
-                        <DatePicker
-                            selected={startDate}
-                            onChange={(date) => setStartDate(date)}
-                            dateFormat="MM/yyyy"
-                            showMonthYearPicker
-                        />
-                    </td>
-                    <td>
-                        <h3>총수입: {income} 원</h3>
-                        <h3>총지출: {expenses} 원</h3>
-                    </td>
-                    <td>
-                        <input type="button" value="내역 추가" style={{ width: "200px", height: "50px" }} />
-                    </td>
-                </table> */}
 
                 <br /><br />
                 <h1>Account</h1>

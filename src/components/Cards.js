@@ -5,7 +5,7 @@ import './Cards.css';
 function Cards() {
     return (
         <div className='cards'>
-            <h1>mergeplan의 기능은 총 3가지입니다.</h1>
+            <h1>MergePlan의 기능은 총 3가지입니다.</h1>
             <div className="cards__container">
                 <div className="cards__wrapper">
                     <ul className='cards__items'>
