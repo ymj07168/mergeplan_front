@@ -13,16 +13,25 @@ export default function AddScheduleForm(props) {
     }
     const onSdSubmit = (e) => {
         e.preventDefault();
-        // props.history.push('/')
 
-        let data = {
+        let data = JSON.stringify({
+            "allday": 0,
+            "title": "",
+            "description": "설명"
+        })
 
+        let config = {
+            headers: {
+                'Authorization': sessionStorage.getItem('token'),
+                'content-type': 'application/json;charset=UTF-8'
+            }
         }
 
-        axios.post('/auth/planner', title)
-            .then(res => console.log('Posting data', res)).catch(err => console.log(err))
-
-        // props.history.push('/')
+        axios.post('/auth/planner', data, config)
+            .then((result) => {
+                console.log(result)
+            })
+            .catch(err => console.log(err))
 
 
         // if (res.payload.loginSuccess) {

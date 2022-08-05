@@ -24,6 +24,13 @@ export default function SignIn(props) {
             password: Pw
         }
 
+        if (!Id) {
+            return alert("아이디를 입력하세요.");
+        }
+        else if (!Pw) {
+            return alert("비밀번호를 입력하세요.");
+        }
+
         axios.post('/login', data)
             //.then(res => console.log('Login data', body))
             .then((result) => {
