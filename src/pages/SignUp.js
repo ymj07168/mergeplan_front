@@ -8,7 +8,7 @@ export default function SignUp() {
     const [Name, setName] = useState('')  // username_k
     const [Id, setId] = useState('')
     const [Pw, setPw] = useState('')
-    const [CPW, setCPw] = useState('')
+    const [CPw, setCPw] = useState('')
     const [Date, setDate] = useState('2022-08-12')
 
     const onNameHandler = (e) => {
@@ -34,7 +34,7 @@ export default function SignUp() {
             username_k: Name,
             username: Id,
             password: Pw,
-            cpassword: CPW,
+            cpassword: CPw,
             username: Name,
             birthday: Date
         }

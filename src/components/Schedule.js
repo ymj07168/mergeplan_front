@@ -25,21 +25,19 @@ function Schedule() {
         { start: new Date(), end: new Date(), title: "special event" }
     ];
 
-    const handleSelectEvent = (e) => {
-        const title = e.title
-        const start = e.start
-        const end = e.end
+    const [title, setTitle] = useState('');
 
+    const handleSelectEvent = (e) => {
         console.log(e.start)
         setModalOpen(true);
+
+        setTitle(e.title);
         return (
-            // <>
-            //     <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-            //     </Modal>
-            // </>
-            <div>
-                {title}{start}{end}
-            </div>
+            <>
+                {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
+                </Modal> */}
+            </>
+
         )
     }
 
@@ -56,9 +54,10 @@ function Schedule() {
                 //     alert(event.title)}
                 onSelectEvent={handleSelectEvent}
             />
-            {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
+            <Modal open={modalOpen} close={closeModal} header="일정 추가하기" >
+                일정: {title}
 
-            </Modal> */}
+            </Modal>
         </div>
     )
 }

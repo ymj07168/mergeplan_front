@@ -27,13 +27,11 @@ export default function SignIn(props) {
         axios.post('/login', data)
             //.then(res => console.log('Login data', body))
             .then((result) => {
-                //var status = result['status']
-                //console.log("test " + status)
-                // console.log(result)
+
                 if (result.status == 200) {
                     alert('로그인')
                     sessionStorage.setItem('token', result.headers.authorization)
-                    // props.history.push('/')
+                    props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
                 } else {
