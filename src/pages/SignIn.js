@@ -35,9 +35,8 @@ export default function SignIn(props) {
                 // console.log(result)
                 if (result.status == 200) {
                     alert('로그인')
-                    props.history.push('/')
                     sessionStorage.setItem('token', result.headers.authorization)
-
+                    props.history.push('/')
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
                 } else {
