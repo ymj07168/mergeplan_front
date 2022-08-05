@@ -25,18 +25,18 @@ export default function SignIn() {
         }
 
         axios.post('/login', data)
-        .then((result) => {
-            //console.log(result.status)
-            if (result.status == 200){
-                alert('로그인')
-                sessionStorage.setItem('token', result.headers.authorization)
-                //console.log(sessionStorage.getItem('token'))
-                // action or redirect
-            }else{
-                alert('로그인 불가')
-            }
-        })
-        .catch(err => console.log(err))
+            .then((result) => {
+                //console.log(result.status)
+                if (result.status == 200) {
+                    alert('로그인')
+                    sessionStorage.setItem('token', result.headers.authorization)
+                    //console.log(sessionStorage.getItem('token'))
+                    // action or redirect
+                } else {
+                    alert('로그인 불가')
+                }
+            })
+            .catch(err => console.log(err))
 
         // session test
         // let config = {
