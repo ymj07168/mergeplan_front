@@ -40,8 +40,6 @@ function Schedule() {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 600 }}
-                // onSelectEvent={event =>
-                //     alert(event.title)}
                 onSelectEvent={handleSelectEvent}
             />
             <Modal open={modalOpen} close={closeModal} header="일정 추가하기" >
