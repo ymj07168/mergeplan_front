@@ -9,14 +9,10 @@ import Modal from "./Modal";
 function Schedule() {
 
     const [modalOpen, setModalOpen] = useState(false);
-    // const openModal = (e) => {
-    //     console.log(e.start)
-    //     setModalOpen(true);
-    // };
+
     const closeModal = () => {
         setModalOpen(false);
     }
-
 
     moment.locale('ko-KR');
     const localizer = momentLocalizer(moment);
@@ -31,16 +27,8 @@ function Schedule() {
     const handleSelectEvent = (e) => {
         console.log(e.start)
         setModalOpen(true);
-
         setTitle(e.title);
-        return (
-            <>
-                {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-                </Modal> */}
-            </>
 
-
-        )
     }
 
     // Calendar.momentLocalizer(moment);
