@@ -63,8 +63,8 @@ export default function SignUp() {
                     <form>
                         <input type="text" name="userName" className="text-field" size="80" id="userName" placeholder="이름" onChange={onNameHandler}></input> <br></br>
                         <input type="text" name="id" className="text-field" size="80" id="userid" placeholder="아이디" onChange={onIdHandler}></input> <br></br>
-                        <input type="text" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
-                        <input type="text" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호 확인" onChange={onCPwHandler}></input> <br></br>
+                        <input type="password" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
+                        <input type="password" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호 확인" onChange={onCPwHandler}></input> <br></br>
                         <input type="date" name="birthday" className="text-field" size="80" id="userDate" placeholder='생년월일' onChange={onDateHandler} /><br />
                         <input type="checkbox" name="idSave" value="save" />서비스 약관에 동의합니다. <br></br>
                         <input type="submit" value="가입하기" className="submit-btn" onClick={onClickJoin}></input> <br></br>
