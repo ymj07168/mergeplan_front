@@ -10,7 +10,6 @@ import AccountItem from '../components/AccountItem';
 
 export default function Account() {
 
-
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("20,000");
     const [expenses, setExpenses] = useState("30,000");
@@ -25,11 +24,6 @@ export default function Account() {
     }
 
     const [histories, setHistories] = useState([]);
-
-    // 월별 보기
-    // const month = "8";
-    // const date = "2022-08-06"
-    // var accountList = histories.filter(history => (history.itemDatetime).getFullYear() + '-' + ((history.itemDatetime).getMonth() + 1) + '-' + (history.itemDatetime).getDate() == date);
 
     // console.log(accountList);
 
@@ -94,27 +88,49 @@ export default function Account() {
                             category={history.itemFirst}
                         />
                     ))}
+                </div>
+                <div>
                     income
-                    {incomeList.map((income) => (
-                        <AccountItem
-                            key={income.id}
-                            date={income.itemDatetime}
-                            title={income.itemTitle}
-                            price={income.itemPrice}
-                            kind={income.itemKind}
-                            category={income.itemFirst} />
-                    ))}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {incomeList.map((income) => (
+                                <AccountItem
+                                    key={income.id}
+                                    date={income.itemDatetime}
+                                    title={income.itemTitle}
+                                    price={income.itemPrice}
+                                    kind={income.itemKind}
+                                    category={income.itemFirst} />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div>
                     outcome
-                    {expensesList.map((outcome) => (
-                        <AccountItem
-                            key={outcome.id}
-                            date={outcome.itemDatetime}
-                            title={outcome.itemTitle}
-                            price={outcome.itemPrice}
-                            kind={outcome.itemKind}
-                            category={outcome.itemFirst}
-                        />
-                    ))}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {expensesList.map((outcome) => (
+                                <AccountItem
+                                    key={outcome.id}
+                                    date={outcome.itemDatetime}
+                                    title={outcome.itemTitle}
+                                    price={outcome.itemPrice}
+                                    kind={outcome.itemKind}
+                                    category={outcome.itemFirst}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
                 <p>
 
