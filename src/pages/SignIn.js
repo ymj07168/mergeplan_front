@@ -8,6 +8,7 @@ export default function SignIn(props) {
     const [Id, setId] = useState('')
     const [Pw, setPw] = useState('')
 
+
     const onIdHandler = (e) => {
         setId(e.target.value)
     }
@@ -40,9 +41,10 @@ export default function SignIn(props) {
                 console.log(data)
 
                 if (result.status == 200) {
-                    alert('로그인')
+                    alert('로그인 성공')
                     sessionStorage.setItem('token', result.headers.authorization)
                     props.history.push('/')
+
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
 
@@ -64,12 +66,17 @@ export default function SignIn(props) {
                     //         console.log(result.payload)
                     //     })
 
-                } else if (result.status == 400) {
-                    alert('로그인 불가')
                 }
+                // else if (result.status == 401) {
+                //     alert('비밀번호 오류')
+                // }
             })
             .catch((err) => {
                 console.log(err)
+
+                // if (err.status == 401) {
+                //     alert('비밀번호 오류')
+                // }
             })
 
         // session test

@@ -22,13 +22,18 @@ function Schedule() {
     ];
 
     const [title, setTitle] = useState('');
+    const [start, setStart] = useState('');
+    const [end, setEnd] = useState('');
 
 
     const handleSelectEvent = (e) => {
         console.log(e.start)
         setModalOpen(true);
         setTitle(e.title);
-
+        var s = e.start;
+        var e = e.end;
+        setStart(s.getFullYear() + '-' + (s.getMonth() + 1) + '-' + s.getDate() + ' ' + s.getHours() + ":" + s.getMinutes() + ":" + s.getSeconds());
+        setEnd(e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate() + ' ' + e.getHours() + ":" + e.getMinutes() + ":" + e.getSeconds());
     }
 
     // Calendar.momentLocalizer(moment);
@@ -43,7 +48,9 @@ function Schedule() {
                 onSelectEvent={handleSelectEvent}
             />
             <Modal open={modalOpen} close={closeModal} header="일정 추가하기" >
-                일정: {title}
+                일정: {title}<br />
+                시작: {start}<br />
+                끝: {end}<br />
 
             </Modal>
         </div>
