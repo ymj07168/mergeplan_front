@@ -5,9 +5,11 @@ import History from '../components/History';
 import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
+import AccountItem from '../components/AccountItem';
 
 
 export default function Account() {
+
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("20,000");
@@ -24,6 +26,12 @@ export default function Account() {
 
     const [histories, setHistories] = useState([]);
 
+    // 월별 보기
+    // const month = "8";
+    // const date = "2022-08-06"
+    // var accountList = histories.filter(history => (history.itemDatetime).getFullYear() + '-' + ((history.itemDatetime).getMonth() + 1) + '-' + (history.itemDatetime).getDate() == date);
+
+    // console.log(accountList);
 
     let config = {
         headers: {
@@ -52,6 +60,10 @@ export default function Account() {
     //     )
     //     .catch(error => console.log(error))
 
+    // 수입 지출 분리
+    const incomeList = histories.filter(history => history.itemKind == 0);
+    const expensesList = histories.filter(history => history.itemKind == 1);
+
 
     return (
         <>
@@ -74,11 +86,33 @@ export default function Account() {
                 <div className='histories'>
                     {histories.map((history) => (
                         <History
+                            key={history.id}
                             date={history.itemDatetime}
                             title={history.itemTitle}
                             price={history.itemPrice}
                             kind={history.itemKind}
                             category={history.itemFirst}
+                        />
+                    ))}
+                    income
+                    {incomeList.map((income) => (
+                        <AccountItem
+                            key={income.id}
+                            date={income.itemDatetime}
+                            title={income.itemTitle}
+                            price={income.itemPrice}
+                            kind={income.itemKind}
+                            category={income.itemFirst} />
+                    ))}
+                    outcome
+                    {expensesList.map((outcome) => (
+                        <AccountItem
+                            key={outcome.id}
+                            date={outcome.itemDatetime}
+                            title={outcome.itemTitle}
+                            price={outcome.itemPrice}
+                            kind={outcome.itemKind}
+                            category={outcome.itemFirst}
                         />
                     ))}
                 </div>
