@@ -1,15 +1,13 @@
-
 import React, { useState } from 'react'
 import '../App.css';
 import axios from 'axios';
-import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory';
-
 
 
 export default function SignIn(props) {
 
     const [Id, setId] = useState('')
     const [Pw, setPw] = useState('')
+
 
     const onIdHandler = (e) => {
         setId(e.target.value)
@@ -27,41 +25,75 @@ export default function SignIn(props) {
             password: Pw
         }
 
+        if (!Id) {
+            return alert("아이디를 입력하세요.");
+        }
+        else if (!Pw) {
+            return alert("비밀번호를 입력하세요.");
+        }
+
         axios.post('/login', data)
+
             //.then(res => console.log('Login data', body))
+
             .then((result) => {
-                //var status = result['status']
-                //console.log("test " + status)
-                // console.log(result)
+                console.log(result.status)
+                console.log(data)
+
                 if (result.status == 200) {
-                    alert('로그인')
+                    alert('로그인 성공')
                     sessionStorage.setItem('token', result.headers.authorization)
                     props.history.push('/')
+
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
-                } else {
-                    alert('로그인 불가')
+
+                    // const dispatcher = useDispatch();
+                    // const [member, setMember] = useState({
+                    //     loginId: "",
+                    //     password: "",
+                    // });
+
+                    // fetch("/login", {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json",
+                    //     },
+                    //     body: bodys,
+                    // })
+                    //     .then((result) => {
+                    //         console.log(result)
+                    //         console.log(result.payload)
+                    //     })
+
                 }
+                // else if (result.status == 401) {
+                //     alert('비밀번호 오류')
+                // }
             })
-            .catch(err => console.log(err))
+            .catch((err) => {
+                console.log(err)
 
-        // const dispatcher = useDispatch();
-        // const [member, setMember] = useState({
-        //     loginId: "",
-        //     password: "",
-        // });
+                // if (err.status == 401) {
+                //     alert('비밀번호 오류')
+                // }
+            })
 
-        // fetch("/login", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: bodys,
+        // session test
+        // let config = {
+        //     headers : {
+        //         'Authorization' : sessionStorage.getItem('token'),
+        //         'content-type' : 'application/json;charset=UTF-8'
+        //     }
+        // }
+
+        // axios.get('/api/v1/user', config)
+        // .then((result) => {
+        //     console.log(result.data)
         // })
-        //     .then((result) => {
-        //         console.log(result)
-        //         console.log(result.payload)
-        //     })
+        // .catch(err => console.log(err))
+
+
     }
 
     return (
@@ -79,6 +111,5 @@ export default function SignIn(props) {
                 </div>
             </div>
         </>
-
     );
 }
