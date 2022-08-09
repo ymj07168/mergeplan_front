@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function AddAcountForm(props) {
 
-    const [Date, setDate] = useState('2022-08-06');
+    const [Date, setDate] = useState('');
     const [Title, setTitle] = useState('');
     const [Price, setPrice] = useState(0);
     const [Kind, setKind] = useState(0)
@@ -20,35 +20,37 @@ export default function AddAcountForm(props) {
     }
 
     const onPriceHandler = (e) => {
-        setPrice(e.target.value)
+        setPrice(Number(e.target.value))
     }
 
     const onKindHandler = (e) => {
-        setKind(e.target.id)
+        setKind(Number(e.target.id))
     }
 
     const onCategoryHandler = (e) => {
-        setCategory(e.target.id)
+        setCategory(Number(e.target.id))
     }
 
     const onAtSubmit = (e) => {
         e.preventDefault();
 
 
-        // let data = JSON.stringify({
-        //     "itemDatetime": '2022-08-07T20:00:00',
-        //     "itemPrice": 20000,
-        //     "itemFirst": 5,
-        //     "itemTitle": "치킨"
-        // })
-
         let data = {
-            itemDatetime: Date,
-            itemTitle: Title,
-            itemPrice: Price,
-            itemKind: Kind,
-            itemFirst: Category
+            "itemDatetime": '2022-08-07 20:00:00',
+            "itemKind": 1,
+            "itemFirst": 5,
+            "itemTitle": "치킨",
+            "itemPrice": 20000
         }
+
+        console.log(Date)
+        // let data = {
+        //     itemDatetime: Date,
+        //     item_kind: Kind,
+        //     itemFirst: Category,
+        //     itemTitle: Title,
+        //     itemPrice: Price
+        // }
 
         let config = {
             headers: {
@@ -60,7 +62,6 @@ export default function AddAcountForm(props) {
         axios.post('/auth/accounts/item', data, config)
             .then((result) => {
                 console.log(result)
-                console.log(Category)
                 alert('새로운 내역이 추가되었습니다.')
             })
             .catch(err => console.log(err))
@@ -72,7 +73,7 @@ export default function AddAcountForm(props) {
             날짜 : <input type="datetime-local" style={{ width: 270 }} onChange={onDateHandler} /><br />
             내역 : <input type="text" style={{ width: 270 }} onChange={onTitleHandler} /><br />
             금액 : <input type="text" name="amount" style={{ width: 270 }} onChange={onPriceHandler} /><br />
-            수입 <input type="radio" name="kind" value="income" onChange={onKindHandler} /> 지출 <input type="radio" name="kind" value="express" onChange={onKindHandler} /><br />
+            수입 <input type="radio" name="kind" value="0" onChange={onKindHandler} /> 지출 <input type="radio" name="kind" value="1" onChange={onKindHandler} /><br />
             분류 : <input type="radio" name="Types" value="Work" onChange={onCategoryHandler} id="1" />Work
             <input type="radio" name="Types" value="Party" onChange={onCategoryHandler} id="2" />Party
             <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="4" />Shopping

@@ -46,19 +46,26 @@ export default function Account(props) {
     }, []);
     console.log(histories);
 
+    // // 년월 변경시 년월 정보 가져오기
+    // const [month, setMonth] = useState('2022-08');
+    // const onMonthHandler = (e) => {
+    //     setMonth(e.target.value)
+    // }
+    // console.log(month)
 
-    // 년월 변경시 년월 정보 가져오기
-    const [month, setMonth] = useState('2022-08');
-    const onMonthHandler = (e) => {
-        setMonth(e.target.value)
-    }
-    console.log(month)
+    // const accountList = histories.filter(history => history.itemMonth == month)
 
-    const accountList = histories.filter(history => history.itemMonth == month)
+    // // 수입 지출 분리
+    // const incomeList = accountList.filter(history => history.itemKind == 0);
+    // const expensesList = accountList.filter(history => history.itemKind == 1);
+
 
     // 수입 지출 분리
-    const incomeList = accountList.filter(history => history.itemKind == 0);
-    const expensesList = accountList.filter(history => history.itemKind == 1);
+    const incomeList = histories.filter(history => history.itemKind == false);
+    const expensesList = histories.filter(history => history.itemKind == true);
+
+
+
 
     return (
         <>
@@ -78,60 +85,62 @@ export default function Account(props) {
                 <br /><br />
                 <h1>Account</h1>
                 {/* <History /> */}
-                <div className='histories'>
+                {/* <div className='histories'>
                     {histories.map((history) => (
                         <History
                             key={history.id}
                             date={history.itemDatetime}
                             title={history.itemTitle}
                             price={history.itemPrice}
-                            kind={history.itemKind}
+                            kind={history.item_kind}
                             category={history.itemFirst}
                         />
                     ))}
-                </div>
-                <div>
-                    income
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {incomeList.map((income) => (
-                                <AccountItem
-                                    key={income.id}
-                                    date={income.itemDatetime}
-                                    title={income.itemTitle}
-                                    price={income.itemPrice}
-                                    kind={income.itemKind}
-                                    category={income.itemFirst} />
-                            ))}
-                        </tbody>
-                    </table>
-                </div>
-                <div>
-                    expenses
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {expensesList.map((expense) => (
-                                <AccountItem
-                                    key={expense.id}
-                                    date={expense.itemDatetime}
-                                    title={expense.itemTitle}
-                                    price={expense.itemPrice}
-                                    kind={expense.itemKind}
-                                    category={expense.itemFirst}
-                                />
-                            ))}
-                        </tbody>
-                    </table>
+                </div> */}
+                <div className='histories'>
+                    <div className='history'>
+                        <h2>income</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {incomeList.map((income) => (
+                                    <AccountItem
+                                        key={income.id}
+                                        date={income.itemDatetime}
+                                        title={income.itemTitle}
+                                        price={income.itemPrice}
+                                        kind={income.item_kind}
+                                        category={income.itemFirst} />
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className='history'>
+                        <h2>expenses</h2>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {expensesList.map((expense) => (
+                                    <AccountItem
+                                        key={expense.id}
+                                        date={expense.itemDatetime}
+                                        title={expense.itemTitle}
+                                        price={expense.itemPrice}
+                                        kind={expense.item_kind}
+                                        category={expense.itemFirst}
+                                    />
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
                 <p>
 
