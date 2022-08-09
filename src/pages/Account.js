@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css';
 import "react-datepicker/dist/react-datepicker.css";
-import History from '../components/History';
 import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
@@ -80,21 +79,8 @@ export default function Account(props) {
 
                 <br /><br />
                 <h1>Account</h1>
-                {/* <History /> */}
-                {/* <div className='histories'>
-                    {histories.map((history) => (
-                        <History
-                            key={history.id}
-                            date={history.itemDatetime}
-                            title={history.itemTitle}
-                            price={history.itemPrice}
-                            kind={history.item_kind}
-                            category={history.itemFirst}
-                        />
-                    ))}
-                </div> */}
                 <div className='histories'>
-                    <div className='history'>
+                    <div>
                         <h2>income</h2>
                         <table>
                             <thead>
@@ -105,17 +91,21 @@ export default function Account(props) {
                             <tbody>
                                 {incomeList.map((income) => (
                                     <AccountItem
-                                        key={income.id}
-                                        date={income.itemDatetime}
+                                        id={income.id}
+                                        uId={income.userId}
+                                        cDate={income.createDatetime}
+                                        iDate={income.itemDatetime}
                                         title={income.itemTitle}
                                         price={income.itemPrice}
-                                        kind={income.item_kind}
-                                        category={income.itemFirst} />
+                                        kind={income.itemKind}
+                                        category={income.itemFirst}
+                                        second={income.itemSecond}
+                                        pId={income.plannerId} />
                                 ))}
                             </tbody>
                         </table>
                     </div>
-                    <div className='history'>
+                    <div>
                         <h2>expenses</h2>
                         <table>
                             <thead>
@@ -126,12 +116,16 @@ export default function Account(props) {
                             <tbody>
                                 {expensesList.map((expense) => (
                                     <AccountItem
-                                        key={expense.id}
-                                        date={expense.itemDatetime}
+                                        id={expense.id}
+                                        uId={expense.userId}
+                                        cDate={expense.createDatetime}
+                                        iDate={expense.itemDatetime}
                                         title={expense.itemTitle}
                                         price={expense.itemPrice}
-                                        kind={expense.item_kind}
+                                        kind={expense.itemKind}
                                         category={expense.itemFirst}
+                                        second={expense.itemSecond}
+                                        pId={expense.plannerId}
                                     />
                                 ))}
                             </tbody>
