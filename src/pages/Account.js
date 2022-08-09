@@ -8,9 +8,10 @@ import axios from 'axios';
 import AccountItem from '../components/AccountItem';
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import finalPropsSelectorFactory from 'react-redux/es/connect/selectorFactory';
 
 
-export default function Account() {
+export default function Account(props) {
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("20,000");
@@ -63,17 +64,14 @@ export default function Account() {
     const incomeList = histories.filter(history => history.itemKind == false);
     const expensesList = histories.filter(history => history.itemKind == true);
 
-    const [month, setMonth] = useState('2022-08');
-    const onMonthHandler = (e) => {
-        setMonth(e.target.value)
-    }
-    console.log(month)
+
+
 
     return (
         <>
             <div className='account'>
                 <div className='account-header' >
-                    <input type="month" className='account-month' value={month} onChange={onMonthHandler} /><br />
+                    <input type="month" className='account-month' value={month} onChange={onMonthHandler} />
                     <div className='account-total'>
                         <h3>총수입: {income} 원</h3>
                         <h3>총지출: {expenses} 원</h3>
