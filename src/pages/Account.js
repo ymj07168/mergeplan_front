@@ -43,24 +43,23 @@ export default function Account(props) {
     }, []);
     console.log(histories);
 
-    // // 년월 변경시 년월 정보 가져오기
-    // const [month, setMonth] = useState('2022-08');
-    // const onMonthHandler = (e) => {
-    //     setMonth(e.target.value)
-    // }
-    // console.log(month)
+    // 년월 변경시 년월 정보 가져오기
+    const [month, setMonth] = useState('2022-08');
+    const onMonthHandler = (e) => {
+        setMonth(e.target.value)
+    }
+    console.log(month)
 
-    // const accountList = histories.filter(history => history.itemMonth == month)
-
-    // // 수입 지출 분리
-    // const incomeList = accountList.filter(history => history.itemKind == 0);
-    // const expensesList = accountList.filter(history => history.itemKind == 1);
-
+    const accountList = histories.filter(history => (history.itemDatetime).substr(0, 7) == month)
 
     // 수입 지출 분리
-    const incomeList = histories.filter(history => history.itemKind == false);
-    const expensesList = histories.filter(history => history.itemKind == true);
+    const incomeList = accountList.filter(item => item.itemKind == false);
+    const expensesList = accountList.filter(item => item.itemKind == true);
 
+
+    // // 수입 지출 분리
+    // const incomeList = histories.filter(history => history.itemKind == false);
+    // const expensesList = histories.filter(history => history.itemKind == true);
 
 
 
@@ -100,7 +99,7 @@ export default function Account(props) {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -121,7 +120,7 @@ export default function Account(props) {
                         <table>
                             <thead>
                                 <tr>
-                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
                                 </tr>
                             </thead>
                             <tbody>
