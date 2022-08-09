@@ -6,8 +6,6 @@ import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
 import AccountItem from '../components/AccountItem';
-import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
 
 
 export default function Account() {
