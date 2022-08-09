@@ -46,23 +46,23 @@ export default function SignIn(props) {
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
 
-        // const dispatcher = useDispatch();
-        // const [member, setMember] = useState({
-        //     loginId: "",
-        //     password: "",
-        // });
+                    // const dispatcher = useDispatch();
+                    // const [member, setMember] = useState({
+                    //     loginId: "",
+                    //     password: "",
+                    // });
 
-        // fetch("/login", {
-        //     method: "POST",
-        //     headers: {
-        //         "Content-Type": "application/json",
-        //     },
-        //     body: bodys,
-        // })
-        //     .then((result) => {
-        //         console.log(result)
-        //         console.log(result.payload)
-        //     })
+                    // fetch("/login", {
+                    //     method: "POST",
+                    //     headers: {
+                    //         "Content-Type": "application/json",
+                    //     },
+                    //     body: bodys,
+                    // })
+                    //     .then((result) => {
+                    //         console.log(result)
+                    //         console.log(result.payload)
+                    //     })
 
                 } else if (result.status == 400) {
                     alert('로그인 불가')
