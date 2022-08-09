@@ -9,14 +9,10 @@ import Modal from "./Modal";
 function Schedule() {
 
     const [modalOpen, setModalOpen] = useState(false);
-    // const openModal = (e) => {
-    //     console.log(e.start)
-    //     setModalOpen(true);
-    // };
+
     const closeModal = () => {
         setModalOpen(false);
     }
-
 
     moment.locale('ko-KR');
     const localizer = momentLocalizer(moment);
@@ -26,21 +22,18 @@ function Schedule() {
     ];
 
     const [title, setTitle] = useState('');
+    const [start, setStart] = useState('');
+    const [end, setEnd] = useState('');
 
 
     const handleSelectEvent = (e) => {
         console.log(e.start)
         setModalOpen(true);
-
         setTitle(e.title);
-        return (
-            <>
-                {/* <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
-                </Modal> */}
-            </>
-
-
-        )
+        var s = e.start;
+        var e = e.end;
+        setStart(s.getFullYear() + '-' + (s.getMonth() + 1) + '-' + s.getDate() + ' ' + s.getHours() + ":" + s.getMinutes() + ":" + s.getSeconds());
+        setEnd(e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate() + ' ' + e.getHours() + ":" + e.getMinutes() + ":" + e.getSeconds());
     }
 
     // Calendar.momentLocalizer(moment);
@@ -52,12 +45,12 @@ function Schedule() {
                 startAccessor="start"
                 endAccessor="end"
                 style={{ height: 600 }}
-                // onSelectEvent={event =>
-                //     alert(event.title)}
                 onSelectEvent={handleSelectEvent}
             />
             <Modal open={modalOpen} close={closeModal} header="일정 추가하기" >
-                일정: {title}
+                일정: {title}<br />
+                시작: {start}<br />
+                끝: {end}<br />
 
             </Modal>
         </div>

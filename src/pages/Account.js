@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react'
 import '../App.css';
-import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import History from '../components/History';
 import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
+import axios from 'axios';
+import AccountItem from '../components/AccountItem';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Account() {
-
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("20,000");
@@ -23,17 +25,42 @@ export default function Account() {
         setModalOpen(false);
     }
 
+    const [histories, setHistories] = useState([]);
+
+    // console.log(accountList);
+
+    let config = {
+        headers: {
+            'Authorization': sessionStorage.getItem('token'),
+            'content-type': 'application/json;charset=UTF-8'
+        }
+    }
+
+    const getHistories = async () => {
+        const json = await (await axios.get('/auth/accounts/item', config));
+        setHistories(json.data);
+    };
+    useEffect(() => {
+        getHistories();
+    }, []);
+    console.log(histories);
+
+
+    // 수입 지출 분리
+    const incomeList = histories.filter(history => history.itemKind == 0);
+    const expensesList = histories.filter(history => history.itemKind == 1);
+
+    const [month, setMonth] = useState('2022-08');
+    const onMonthHandler = (e) => {
+        setMonth(e.target.value)
+        console.log(month)
+    }
+
     return (
         <>
             <div className='account'>
                 <div className='account-header' >
-                    {/* <DatePicker
-                        selected={startDate}
-                        onChange={(date) => setStartDate(date)}
-                        dateFormat="MM/yyyy"
-                        showMonthYearPicker
-                    /> */}
-                    <input type="month" className='account-month' /><br />
+                    <input type="month" className='account-month' value={month} onChange={onMonthHandler} /><br />
                     <div className='account-total'>
                         <h3>총수입: {income} 원</h3>
                         <h3>총지출: {expenses} 원</h3>
@@ -46,7 +73,62 @@ export default function Account() {
 
                 <br /><br />
                 <h1>Account</h1>
-                <History />
+                {/* <History /> */}
+                <div className='histories'>
+                    {histories.map((history) => (
+                        <History
+                            key={history.id}
+                            date={history.itemDatetime}
+                            title={history.itemTitle}
+                            price={history.itemPrice}
+                            kind={history.itemKind}
+                            category={history.itemFirst}
+                        />
+                    ))}
+                </div>
+                <div>
+                    income
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {incomeList.map((income) => (
+                                <AccountItem
+                                    key={income.id}
+                                    date={income.itemDatetime}
+                                    title={income.itemTitle}
+                                    price={income.itemPrice}
+                                    kind={income.itemKind}
+                                    category={income.itemFirst} />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    expenses
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {expensesList.map((expense) => (
+                                <AccountItem
+                                    key={expense.id}
+                                    date={expense.itemDatetime}
+                                    title={expense.itemTitle}
+                                    price={expense.itemPrice}
+                                    kind={expense.itemKind}
+                                    category={expense.itemFirst}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
                 <p>
 
                     이 페이지는 가계부 페이지입니다.
