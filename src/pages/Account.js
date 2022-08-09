@@ -6,10 +6,11 @@ import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
 import AccountItem from '../components/AccountItem';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Account() {
-
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("20,000");
@@ -25,11 +26,6 @@ export default function Account() {
     }
 
     const [histories, setHistories] = useState([]);
-
-    // 월별 보기
-    // const month = "8";
-    // const date = "2022-08-06"
-    // var accountList = histories.filter(history => (history.itemDatetime).getFullYear() + '-' + ((history.itemDatetime).getMonth() + 1) + '-' + (history.itemDatetime).getDate() == date);
 
     // console.log(accountList);
 
@@ -50,26 +46,21 @@ export default function Account() {
     console.log(histories);
 
 
-    // axios.get('/auth/accounts/item', config)
-    //     .then(
-    //         response => {
-    //             console.log(response)
-    //             setHistories(response.data)
-    //             console.log(histories)
-    //         }
-    //     )
-    //     .catch(error => console.log(error))
-
     // 수입 지출 분리
     const incomeList = histories.filter(history => history.itemKind == 0);
     const expensesList = histories.filter(history => history.itemKind == 1);
 
+    const [month, setMonth] = useState('2022-08');
+    const onMonthHandler = (e) => {
+        setMonth(e.target.value)
+        console.log(month)
+    }
 
     return (
         <>
             <div className='account'>
                 <div className='account-header' >
-                    <input type="month" className='account-month' /><br />
+                    <input type="month" className='account-month' value={month} onChange={onMonthHandler} /><br />
                     <div className='account-total'>
                         <h3>총수입: {income} 원</h3>
                         <h3>총지출: {expenses} 원</h3>
@@ -94,27 +85,49 @@ export default function Account() {
                             category={history.itemFirst}
                         />
                     ))}
+                </div>
+                <div>
                     income
-                    {incomeList.map((income) => (
-                        <AccountItem
-                            key={income.id}
-                            date={income.itemDatetime}
-                            title={income.itemTitle}
-                            price={income.itemPrice}
-                            kind={income.itemKind}
-                            category={income.itemFirst} />
-                    ))}
-                    outcome
-                    {expensesList.map((outcome) => (
-                        <AccountItem
-                            key={outcome.id}
-                            date={outcome.itemDatetime}
-                            title={outcome.itemTitle}
-                            price={outcome.itemPrice}
-                            kind={outcome.itemKind}
-                            category={outcome.itemFirst}
-                        />
-                    ))}
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {incomeList.map((income) => (
+                                <AccountItem
+                                    key={income.id}
+                                    date={income.itemDatetime}
+                                    title={income.itemTitle}
+                                    price={income.itemPrice}
+                                    kind={income.itemKind}
+                                    category={income.itemFirst} />
+                            ))}
+                        </tbody>
+                    </table>
+                </div>
+                <div>
+                    expenses
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th>수입/지출</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {expensesList.map((expense) => (
+                                <AccountItem
+                                    key={expense.id}
+                                    date={expense.itemDatetime}
+                                    title={expense.itemTitle}
+                                    price={expense.itemPrice}
+                                    kind={expense.itemKind}
+                                    category={expense.itemFirst}
+                                />
+                            ))}
+                        </tbody>
+                    </table>
                 </div>
                 <p>
 
