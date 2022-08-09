@@ -6,6 +6,8 @@ import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
 import AccountItem from '../components/AccountItem';
+import { useParams } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 export default function Account() {
@@ -44,26 +46,21 @@ export default function Account() {
     console.log(histories);
 
 
-    // axios.get('/auth/accounts/item', config)
-    //     .then(
-    //         response => {
-    //             console.log(response)
-    //             setHistories(response.data)
-    //             console.log(histories)
-    //         }
-    //     )
-    //     .catch(error => console.log(error))
-
     // 수입 지출 분리
     const incomeList = histories.filter(history => history.itemKind == 0);
     const expensesList = histories.filter(history => history.itemKind == 1);
 
+    const [month, setMonth] = useState('2022-08');
+    const onMonthHandler = (e) => {
+        setMonth(e.target.value)
+        console.log(month)
+    }
 
     return (
         <>
             <div className='account'>
                 <div className='account-header' >
-                    <input type="month" className='account-month' /><br />
+                    <input type="month" className='account-month' value={month} onChange={onMonthHandler} /><br />
                     <div className='account-total'>
                         <h3>총수입: {income} 원</h3>
                         <h3>총지출: {expenses} 원</h3>
@@ -111,7 +108,7 @@ export default function Account() {
                     </table>
                 </div>
                 <div>
-                    outcome
+                    expenses
                     <table>
                         <thead>
                             <tr>
@@ -119,14 +116,14 @@ export default function Account() {
                             </tr>
                         </thead>
                         <tbody>
-                            {expensesList.map((outcome) => (
+                            {expensesList.map((expense) => (
                                 <AccountItem
-                                    key={outcome.id}
-                                    date={outcome.itemDatetime}
-                                    title={outcome.itemTitle}
-                                    price={outcome.itemPrice}
-                                    kind={outcome.itemKind}
-                                    category={outcome.itemFirst}
+                                    key={expense.id}
+                                    date={expense.itemDatetime}
+                                    title={expense.itemTitle}
+                                    price={expense.itemPrice}
+                                    kind={expense.itemKind}
+                                    category={expense.itemFirst}
                                 />
                             ))}
                         </tbody>
