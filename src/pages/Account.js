@@ -45,6 +45,19 @@ export default function Account() {
     }, []);
     console.log(histories);
 
+    // // 년월 변경시 년월 정보 가져오기
+    // const [month, setMonth] = useState('2022-08');
+    // const onMonthHandler = (e) => {
+    //     setMonth(e.target.value)
+    // }
+    // console.log(month)
+
+    // const accountList = histories.filter(history => history.itemMonth == month)
+
+    // // 수입 지출 분리
+    // const incomeList = accountList.filter(history => history.itemKind == 0);
+    // const expensesList = accountList.filter(history => history.itemKind == 1);
+
 
     // 수입 지출 분리
     const incomeList = histories.filter(history => history.itemKind == 0);
