@@ -75,9 +75,9 @@ export default function AddAcountForm(props) {
             수입 <input type="radio" name="kind" id="0" onChange={onKindHandler} /> 지출 <input type="radio" name="kind" id="1" onChange={onKindHandler} /><br />
             분류 : <input type="radio" name="Types" value="Work" onChange={onCategoryHandler} id="1" />Work
             <input type="radio" name="Types" value="Party" onChange={onCategoryHandler} id="2" />Party
-            <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="4" />Shopping
-            <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="5" />Dining
-            <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="6" />Trip<br />
+            <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="3" />Shopping
+            <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="4" />Dining
+            <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" />Trip<br />
             <input type="submit" id="btn-add-schedule" value="일정추가" />
 
         </form >

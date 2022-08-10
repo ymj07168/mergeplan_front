@@ -10,8 +10,12 @@ import AccountItem from '../components/AccountItem';
 export default function Account(props) {
 
     // 총수입, 총지출 변수
-    const [income, setIncome] = useState("20,000");
-    const [expenses, setExpenses] = useState("30,000");
+    const [income, setIncome] = useState("");
+    const [expenses, setExpenses] = useState("");
+    // 연도 변수
+    const [year, setYear] = useState('2022');
+    const [totalMonth, setTotalmonth] = useState('08');
+
 
     // 내역 추가하기 창 -> Modal
     const [modalOpen, setModalOpen] = useState(false);
@@ -22,9 +26,8 @@ export default function Account(props) {
         setModalOpen(false);
     }
 
+    // 가계부 내역 전체 데이터 가져오기
     const [histories, setHistories] = useState([]);
-
-    // console.log(accountList);
 
     let config = {
         headers: {
@@ -34,7 +37,9 @@ export default function Account(props) {
     }
 
     const getHistories = async () => {
+        console.log("before");
         const json = await (await axios.get('/auth/accounts/item', config));
+        console.log("after");
         setHistories(json.data);
     };
     useEffect(() => {
@@ -42,18 +47,34 @@ export default function Account(props) {
     }, []);
     console.log(histories);
 
+
     // 년월 변경시 년월 정보 가져오기
     const [month, setMonth] = useState('2022-08');
     const onMonthHandler = (e) => {
         setMonth(e.target.value)
+        setYear((e.target.value).substr(0, 4))
+        setTotalmonth((e.target.value).substr(5, 7))
     }
-    console.log(month)
 
+    // 월별 분리
     const accountList = histories.filter(history => (history.itemDatetime).substr(0, 7) == month)
 
     // 수입 지출 분리
     const incomeList = accountList.filter(item => item.itemKind == false);
     const expensesList = accountList.filter(item => item.itemKind == true);
+
+    // 수입 지출 총액 가져오기
+    axios.get(`/auth/accounts/item/total/${year}/${totalMonth}`, config)
+        .then(
+            result => {
+                console.log(result)
+                setIncome(result.data.income)
+                setExpenses(result.data.expenses)
+            }
+        )
+        .catch(error => console.log(error)
+
+        )
 
 
     // // 수입 지출 분리
@@ -99,6 +120,7 @@ export default function Account(props) {
                                         price={income.itemPrice}
                                         kind={income.itemKind}
                                         category={income.itemFirst}
+                                        cWord={income.itemFirstWord}
                                         second={income.itemSecond}
                                         pId={income.plannerId} />
                                 ))}
@@ -124,6 +146,7 @@ export default function Account(props) {
                                         price={expense.itemPrice}
                                         kind={expense.itemKind}
                                         category={expense.itemFirst}
+                                        cWord={expense.itemFirstWord}
                                         second={expense.itemSecond}
                                         pId={expense.plannerId}
                                     />
