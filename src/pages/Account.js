@@ -112,6 +112,7 @@ export default function Account(props) {
                             <tbody>
                                 {incomeList.map((income) => (
                                     <AccountItem
+                                        key={income.id}
                                         id={income.id}
                                         uId={income.userId}
                                         cDate={income.createDatetime}
@@ -138,6 +139,7 @@ export default function Account(props) {
                             <tbody>
                                 {expensesList.map((expense) => (
                                     <AccountItem
+                                        key={expense.id}
                                         id={expense.id}
                                         uId={expense.userId}
                                         cDate={expense.createDatetime}
