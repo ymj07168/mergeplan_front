@@ -48,7 +48,7 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
                     cDate={cDate}
                     iDate={iDate}
                     kind={kind}
-                    first={category}
+                    category={category}
                     second={second}
                     title={title}
                     price={price}
