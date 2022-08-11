@@ -18,7 +18,9 @@ function Schedule() {
     const localizer = momentLocalizer(moment);
 
     const myEventList = [
-        { start: new Date(), end: new Date(), title: "special event" }
+        {
+            start: new Date(), end: new Date(), title: "special event"
+        }
     ];
 
     const [title, setTitle] = useState('');

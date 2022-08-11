@@ -26,7 +26,7 @@ export default function Account(props) {
         setModalOpen(false);
     }
 
-    // 가계부 내역 전체 데이터 가져오기
+    // 가계부 내역 전체 데이터 저장 변수
     const [histories, setHistories] = useState([]);
 
     let config = {
@@ -36,6 +36,7 @@ export default function Account(props) {
         }
     }
 
+    // 가계부 내역 전체 데이터 가져오기
     const getHistories = async () => {
         console.log("before");
         const json = await (await axios.get('/auth/accounts/item', config));

@@ -12,7 +12,10 @@ export default function AddAcountForm(props) {
 
 
     const onDateHandler = (e) => {
-        setDate(e.target.value)
+        // setDate(e.target.value)
+        setDate((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
+        console.log(e.target.value)
+        console.log((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16)))
     }
 
     const onTitleHandler = (e) => {
@@ -32,7 +35,7 @@ export default function AddAcountForm(props) {
     }
 
     const onAtSubmit = (e) => {
-
+        // e.preventDefault();
 
         // let data = {
         //     "itemDatetime": '2022-08-07 20:00:00',
@@ -41,6 +44,7 @@ export default function AddAcountForm(props) {
         //     "itemTitle": "치킨",
         //     "itemPrice": 20000
         // }
+
 
         console.log(String(Date).substr(0, 7))
         let data = {

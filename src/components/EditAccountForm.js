@@ -6,7 +6,7 @@ export default function EditAcountForm(props) {
 
     console.log(props.title);
     console.log(props.iDate);
-    const [Date, setDate] = useState('2022-08-07 09:54:00');
+    const [Date, setDate] = useState(props.iDate); // props.iDate(itemDatetime)
     const [Title, setTitle] = useState(props.title);
     const [Price, setPrice] = useState(props.price);
     const [Kind, setKind] = useState(props.kind)
@@ -14,7 +14,7 @@ export default function EditAcountForm(props) {
 
 
     const onDateHandler = (e) => {
-        setDate(e.target.value)
+        setDate((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
     }
 
     const onTitleHandler = (e) => {
@@ -36,11 +36,16 @@ export default function EditAcountForm(props) {
     const onAtEditSubmit = (e) => {
 
         let data = {
+            id: props.id,
+            userId: props.uId,
+            createDatetime: props.cDate,
             itemDatetime: Date,
             itemKind: Kind,
             itemFirst: Category,
+            itemSecond: props.second,
             itemTitle: Title,
-            itemPrice: Price
+            itemPrice: Price,
+            plannerId: props.pId
         }
 
         let config = {
@@ -73,7 +78,7 @@ export default function EditAcountForm(props) {
             <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="3" checked={Number(Category) == 3} />Shopping
             <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="4" checked={Number(Category) == 4} />Dining
             <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" checked={Number(Category) == 5} />Trip<br />
-            <input type="submit" id="btn-add-schedule" value="일정추가" />
+            <input type="submit" id="btn-add-schedule" value="수정하기" />
         </form >
     )
 }
