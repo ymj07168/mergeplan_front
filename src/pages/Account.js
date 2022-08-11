@@ -43,12 +43,12 @@ export default function Account(props) {
     }, []);
     console.log(histories);
 
-    // // 년월 변경시 년월 정보 가져오기
-    // const [month, setMonth] = useState('2022-08');
-    // const onMonthHandler = (e) => {
-    //     setMonth(e.target.value)
-    // }
-    // console.log(month)
+    // 년월 변경시 년월 정보 가져오기
+    const [month, setMonth] = useState('2022-08');
+    const onMonthHandler = (e) => {
+        setMonth(e.target.value)
+    }
+    console.log(month)
 
     // const accountList = histories.filter(history => history.itemMonth == month)
 
