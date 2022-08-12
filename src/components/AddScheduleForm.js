@@ -47,13 +47,6 @@ export default function AddScheduleForm(props) {
     const onSdSubmit = (e) => {
         e.preventDefault();
 
-        // let data = JSON.stringify({
-        //     "allday": 0,
-        //     "title": "효원333",
-        //     "description": "커피빈",
-        //     "category": 2
-        // })
-
         let data = {
             allday: 0,
             title: title,
