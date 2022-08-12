@@ -6,7 +6,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import Modal from "./Modal";
 
 
-function Schedule() {
+function Schedule(props) {
 
     const [modalOpen, setModalOpen] = useState(false);
 
@@ -17,25 +17,46 @@ function Schedule() {
     moment.locale('ko-KR');
     const localizer = momentLocalizer(moment);
 
-    const myEventList = [
-        {
-            start: new Date(), end: new Date(), title: "special event"
-        }
-    ];
 
+    // const myEventList = [
+    //     {
+    //         id: 1, start: new Date(), end: new Date(), title: "special event", place: 'happy'
+    //     },
+    //     {
+    //         id: 2, start: '2022-08-07T08:00:00', end: '2022-08-07T09:00:00', title: "coffee", place: '선릉'
+    //     }
+    // ];
+
+    const myEventList = props.plannerList;
+
+    // const myEventList = props.plannerList.map((schedule) => (
+    //     setTitle(schedule.title),
+    //     setStart(schedule.startTime),
+    //     setEnd(schedule.endTime)
+    // ));
+
+    // 일정 클릭시 셋팅 변수
     const [title, setTitle] = useState('');
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
+    const [category, setCategory] = useState('');
+    const [description, setDescription] = useState('');
 
 
     const handleSelectEvent = (e) => {
         console.log(e.start)
+        console.log(e.place)
+        console.log(e.description)
         setModalOpen(true);
         setTitle(e.title);
-        var s = e.start;
-        var e = e.end;
-        setStart(s.getFullYear() + '-' + (s.getMonth() + 1) + '-' + s.getDate() + ' ' + s.getHours() + ":" + s.getMinutes() + ":" + s.getSeconds());
-        setEnd(e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate() + ' ' + e.getHours() + ":" + e.getMinutes() + ":" + e.getSeconds());
+        setStart(e.start);
+        setEnd(e.end);
+        setCategory(e.itemFirstWord);
+        setDescription(e.description);
+        // var s = e.start;
+        // var e = e.end;
+        // setStart(s.getFullYear() + '-' + (s.getMonth() + 1) + '-' + s.getDate() + ' ' + s.getHours() + ":" + s.getMinutes() + ":" + s.getSeconds());
+        // setEnd(e.getFullYear() + '-' + (e.getMonth() + 1) + '-' + e.getDate() + ' ' + e.getHours() + ":" + e.getMinutes() + ":" + e.getSeconds());
     }
 
     // Calendar.momentLocalizer(moment);
@@ -53,6 +74,8 @@ function Schedule() {
                 일정: {title}<br />
                 시작: {start}<br />
                 끝: {end}<br />
+                설명: {description}<br />
+                분류: {category}
 
             </Modal>
         </div>
