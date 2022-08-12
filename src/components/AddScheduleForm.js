@@ -15,9 +15,8 @@ export default function AddScheduleForm(props) {
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
 
-
     const [description, setDescription] = useState("")
-    const [category, setCategory] = useState("")
+    const [category, setCategory] = useState(1)
 
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
@@ -25,11 +24,15 @@ export default function AddScheduleForm(props) {
 
     const onStartHandler = (e) => {
         setStart((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
+        // setStart(e.target.value)
+        console.log(new Date(e.target.value))
+        console.log(new Date(2022, 5, 2, 3, 4, 0))
         console.log((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
     }
 
     const onEndHandler = (e) => {
         setEnd((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
+        // setEnd(e.target.value)
     }
 
     const onDescirptionHandler = (e) => {
@@ -57,7 +60,7 @@ export default function AddScheduleForm(props) {
             start: start,
             end: end,
             description: description,
-            cartegory: category,
+            category: category,
         }
 
         let config = {
