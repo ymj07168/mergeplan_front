@@ -225,7 +225,7 @@
 .histories {
   display: grid;
   grid-template-columns: repeat(2, minmax(400px, 1fr));
-  grid-gap: 25px;
+  grid-gap: 80px;
   padding: 50px;
   width: 100%;
   padding-top: 70px;
@@ -254,6 +254,19 @@
 }
 
 /* account table css */
+.account-table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+  empty-cells: show;
+}
+
+th,
+td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+
 
 
 /* account div 박스 css */
