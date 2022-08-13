@@ -27,7 +27,7 @@ function Schedule(props) {
         }
     ];
 
-    start: "2022-10-8 11:30:44"
+
     console.log(new Date())
     // const myEventList = props.plannerList;
 
