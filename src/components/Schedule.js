@@ -18,24 +18,33 @@ function Schedule(props) {
     const localizer = momentLocalizer(moment);
 
 
-    const myEventList = [
+    // const myEventList = [
+    //     {
+    //         id: 1, start: new Date(), end: new Date(), title: "special event"
+    //     },
+    //     {
+    //         id: 2, start: new Date("2022-8-13 4:30:00"), end: new Date("2022-8-13 5:30:00"), title: "coffee"
+    //     }
+    // ];
+
+    console.log(new Date(2022, 7, 13, 5, 30))
+    console.log(new Date("2022-8-13 5:30"))
+    // // const myEventList = props.plannerList;
+
+    const myEventList = props.plannerList.map((schedule) => (
         {
-            id: 1, start: new Date(), end: new Date(), title: "special event"
-        },
-        {
-            id: 2, start: new Date(2022, 7, 13, 4, 30), end: new Date(2022, 7, 13, 5, 30), title: "coffee"
+            userId: schedule.userId,
+            allDay: 0,
+            // start: new Date(Number((schedule.start).substr(0, 4)), Number((schedule.start).substr(6, 7)), Number((schedule.start).substr(8, 10)), Number((schedule.start).substr(11, 13)), Number((schedule.start).substr(14, 16))),
+            // end: new Date(Number((schedule.end).substr(0, 4)), Number((schedule.end).substr(6, 7)), Number((schedule.end).substr(8, 10)), Number((schedule.end).substr(11, 13)), Number((schedule.end).substr(14, 16))),
+            start: new Date(schedule.start),
+            end: new Date(schedule.end),
+            title: schedule.title,
+            category: schedule.category,
+            description: schedule.description,
+            itemFirstWord: schedule.itemFirstWord
         }
-    ];
-
-    start: "2022-10-8 11:30:44"
-    console.log(new Date())
-    // const myEventList = props.plannerList;
-
-    // const myEventList = props.plannerList.map((schedule) => (
-    //     setTitle(schedule.title),
-    //     setStart(schedule.startTime),
-    //     setEnd(schedule.endTime)
-    // ));
+    ));
 
     // 일정 클릭시 셋팅 변수
     const [title, setTitle] = useState('');
@@ -51,8 +60,8 @@ function Schedule(props) {
         console.log(e.description)
         setModalOpen(true);
         setTitle(e.title);
-        setStart(e.start);
-        setEnd(e.end);
+        setStart(String(e.start));
+        setEnd(String(e.end));
         setCategory(e.itemFirstWord);
         setDescription(e.description);
         // var s = e.start;
