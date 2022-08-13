@@ -104,7 +104,7 @@ export default function Account(props) {
                 <div className='histories'>
                     <div>
                         <h2>income</h2>
-                        <table>
+                        <table className='account-table'>
                             <thead>
                                 <tr>
                                     <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
@@ -131,7 +131,7 @@ export default function Account(props) {
                     </div>
                     <div>
                         <h2>expenses</h2>
-                        <table>
+                        <table className='account-table'>
                             <thead>
                                 <tr>
                                     <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>

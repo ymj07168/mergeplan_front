@@ -28,6 +28,10 @@ function Navbar() {
 
     window.addEventListener('resize', showButton);
     const isLogin = isAdmin();
+    const onLogout = () => {
+        sessionStorage.removeItem("token")
+        window.location.reload();
+    }
     return (
         <>
             <nav className='navbar'>
@@ -71,7 +75,7 @@ function Navbar() {
                             </li></>}
 
                     </ul>
-                    {isLogin ? <>{button && <Link to='/planner' className='btn-mobile'><Button buttonStyle='btn--outline'>로그아웃</Button></Link>}</> :
+                    {isLogin ? <>{button && <Link to='/' className='btn-mobile'><Button buttonStyle='btn--outline' onClick={onLogout}>로그아웃</Button></Link>}</> :
                         <>{button && <Link to='/sign-in' className='btn-mobile'><Button buttonStyle='btn--outline'>로그인</Button></Link>}
                             {button && <Link to='/sign-up' className='btn-mobile'><Button buttonStyle='btn--outline'>회원가입</Button></Link>}</>}
                 </div>

@@ -18,16 +18,18 @@ function Schedule(props) {
     const localizer = momentLocalizer(moment);
 
 
-    // const myEventList = [
-    //     {
-    //         id: 1, start: new Date(), end: new Date(), title: "special event", place: 'happy'
-    //     },
-    //     {
-    //         id: 2, start: '2022-08-07T08:00:00', end: '2022-08-07T09:00:00', title: "coffee", place: '선릉'
-    //     }
-    // ];
+    const myEventList = [
+        {
+            id: 1, start: new Date(), end: new Date(), title: "special event"
+        },
+        {
+            id: 2, start: new Date(2022, 7, 13, 4, 30), end: new Date(2022, 7, 13, 5, 30), title: "coffee"
+        }
+    ];
 
-    const myEventList = props.plannerList;
+    start: "2022-10-8 11:30:44"
+    console.log(new Date())
+    // const myEventList = props.plannerList;
 
     // const myEventList = props.plannerList.map((schedule) => (
     //     setTitle(schedule.title),
