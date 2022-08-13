@@ -77,13 +77,6 @@ export default function Account(props) {
 
         )
 
-
-    // // 수입 지출 분리
-    // const incomeList = histories.filter(history => history.itemKind == false);
-    // const expensesList = histories.filter(history => history.itemKind == true);
-
-
-
     return (
         <>
             <div className='account'>

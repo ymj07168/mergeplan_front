@@ -4,6 +4,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 
+
 export default function AddScheduleForm(props) {
 
     const [title, setTitle] = useState("");
@@ -45,7 +46,7 @@ export default function AddScheduleForm(props) {
 
 
     const onSdSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         let data = {
             allday: 0,
@@ -85,7 +86,7 @@ export default function AddScheduleForm(props) {
     return (
         <>
             <form onSubmit={onSdSubmit}>
-                <table className='add-table'>
+                <table>
                     <thead></thead>
                     <tbody>
                         <tr>
@@ -134,10 +135,6 @@ export default function AddScheduleForm(props) {
                                 <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" />Trip<br />
                             </td>
                         </tr>
-                        {/* <tr>
-                            <td>장소</td>
-                            <td colSpan={3}><input type="text" size="50" name="location" /></td>
-                        </tr> */}
                         <tr>
                             <td>설명</td>
                             <td colSpan={3}><textarea rows="10" cols="50" name="comment" onChange={onDescirptionHandler}></textarea></td>
