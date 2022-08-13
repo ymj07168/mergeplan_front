@@ -30,7 +30,7 @@ function Navbar() {
     const isLogin = isAdmin();
     const onLogout = () => {
         sessionStorage.removeItem("token")
-
+        window.location.reload();
     }
     return (
         <>
@@ -61,7 +61,7 @@ function Navbar() {
                             </Link>
                         </li>
 
-                        {isLogin ? <li><Link to='/' className='nav-links-mobile' onClick={onLogout}>
+                        {isLogin ? <li><Link to='/sign-in' className='nav-links-mobile' onClick={onLogout}>
                             로그아웃
                         </Link></li> : <><li className='nav-item'>
                             <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
