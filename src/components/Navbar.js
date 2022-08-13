@@ -61,7 +61,7 @@ function Navbar() {
                             </Link>
                         </li>
 
-                        {isLogin ? <li><Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
+                        {isLogin ? <li><Link to='/sign-in' className='nav-links-mobile' onClick={onLogout}>
                             로그아웃
                         </Link></li> : <><li className='nav-item'>
                             <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>

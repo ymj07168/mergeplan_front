@@ -1,6 +1,5 @@
 import axios from "axios";
 import React, { useState } from "react";
-import "./History.css";
 import Modal from "./Modal";
 import EditAcountForm from "./EditAccountForm";
 
