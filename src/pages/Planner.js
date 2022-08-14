@@ -4,8 +4,23 @@ import Schedule from '../components/Schedule';
 import Modal from '../components/Modal';
 import axios from "axios";
 import AddScheduleForm from '../components/AddScheduleForm';
+import { isPlanner } from '../components/AccountItem';
+import ShowScheduleForm from '../components/ShowScheduleForm';
 
 export default function Planner() {
+
+    // 가계부에서 pId 값 넘겨받기 isPlanner()
+    console.log('플래너:넘겨받은 pId값 확인')
+    console.log(isPlanner());
+    const [pId, setPId] = useState(isPlanner())
+    const [plannerOpen, setPlannerOpen] = useState(isPlanner());
+    const closeSchedule = () => {
+        setPlannerOpen(false);
+        sessionStorage.setItem('pId', '');
+        console.log('닫힌 후 pId 값 0 확인')
+        console.log(isPlanner())
+    }
+
 
     // 일정 추가하기 -> modal 창 생성
     const [modalOpen, setModalOpen] = useState(false);
@@ -42,9 +57,7 @@ export default function Planner() {
 
     // 플래너 내역 전체 데이터 가져오기
     const getSchedules = async () => {
-        console.log("before");
         const json = await (await axios.get('/auth/planner/item', config));
-        console.log("after");
         setSchedules(json.data);
     };
     useEffect(() => {
@@ -63,6 +76,12 @@ export default function Planner() {
                 <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
                     <AddScheduleForm />
                 </Modal>
+                <Modal open={plannerOpen} close={closeSchedule} header="일정 상세보기">
+                    <ShowScheduleForm
+                        pId={plannerOpen}
+                    />
+                </Modal>
+
             </div>
         </>
     );

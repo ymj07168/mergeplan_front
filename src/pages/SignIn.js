@@ -54,18 +54,6 @@ export default function SignIn(props) {
                     //     password: "",
                     // });
 
-                    // fetch("/login", {
-                    //     method: "POST",
-                    //     headers: {
-                    //         "Content-Type": "application/json",
-                    //     },
-                    //     body: bodys,
-                    // })
-                    //     .then((result) => {
-                    //         console.log(result)
-                    //         console.log(result.payload)
-                    //     })
-
                 }
                 // else if (result.status == 401) {
                 //     alert('비밀번호 오류')
@@ -79,13 +67,6 @@ export default function SignIn(props) {
                 // }
             })
 
-        // session test
-        // let config = {
-        //     headers : {
-        //         'Authorization' : sessionStorage.getItem('token'),
-        //         'content-type' : 'application/json;charset=UTF-8'
-        //     }
-        // }
 
         // axios.get('/api/v1/user', config)
         // .then((result) => {
