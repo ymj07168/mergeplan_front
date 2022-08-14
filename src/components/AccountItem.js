@@ -34,11 +34,14 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
             })
     }
 
+    const onShowSchedule = (e) => {
+    }
+
 
     return (
         <>
             <tr>
-                <td>{iDate}</td><td>{title}</td><td>{cWord}</td><td>{price}</td><td><button onClick={openModal}>수정</button></td><td><button onClick={onDelete}>삭제</button></td>
+                <td>{iDate}</td><td>{title}</td><td>{cWord}</td><td>{price}</td><td><button onClick={openModal}>수정</button></td><td><button onClick={onDelete}>삭제</button></td><td><button onClick={onShowSchedule}>일정보기</button></td>
             </tr>
             <Modal open={modalOpen} close={closeModal} header="일정 수정하기">
                 <EditAcountForm
