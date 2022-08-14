@@ -1,7 +1,8 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Modal from "./Modal";
 import EditAcountForm from "./EditAccountForm";
+import { Link } from "react-router-dom";
 
 export default function AccountItem({ id, uId, cDate, iDate, kind, title, price, category, cWord, second, pId }, props) {
 
@@ -24,8 +25,6 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
     }
 
     const onDelete = (e) => {
-
-
         axios.delete(`/auth/accounts/item/${id}`, config)
             .then((result) => {
                 alert('삭제 성공')
@@ -34,16 +33,36 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
             })
     }
 
+    const [schedules, setSchedules] = useState([]);
+
+    // 플래너 내역 전체 데이터 가져오기
+    const getSchedules = async () => {
+        console.log("before");
+        const json = await (await axios.get('/auth/planner/item', config));
+        console.log("after");
+        setSchedules(json.data);
+    };
+    useEffect(() => {
+        getSchedules();
+    }, []);
+    console.log(schedules);
+
     const onShowSchedule = (e) => {
+        console.log(pId)
+        console.log(schedules[pId])
+
+        // axios.get(`auth/planner/item/${pId}`, config)
+        // plannerList[pId]
+        // 
     }
 
 
     return (
         <>
             <tr>
-                <td>{iDate}</td><td>{title}</td><td>{cWord}</td><td>{price}</td><td><button onClick={openModal}>수정</button></td><td><button onClick={onDelete}>삭제</button></td><td><button onClick={onShowSchedule}>일정보기</button></td>
+                <td>{iDate}</td><td>{title}</td><td>{cWord}</td><td>{price}</td><td><button onClick={openModal}>수정</button></td><td><button onClick={onDelete}>삭제</button></td><td><Link to='/planner'><button onClick={onShowSchedule}>일정보기</button></Link></td>
             </tr>
-            <Modal open={modalOpen} close={closeModal} header="일정 수정하기">
+            <Modal open={modalOpen} close={closeModal} header="내역 수정하기">
                 <EditAcountForm
                     id={id}
                     uId={uId}

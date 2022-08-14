@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Modal from "./Modal";
-import axios from "axios";
 import EditScheduleForm from "./EditScheduleForm";
 
 
@@ -81,7 +80,7 @@ function Schedule(props) {
                 style={{ height: 600 }}
                 onSelectEvent={openModal}
             />
-            <Modal open={modalOpen} close={closeModal} header="일정 수정하기" >
+            <Modal open={modalOpen} close={closeModal} header="일정 상세보기" >
                 <EditScheduleForm
                     id={id}
                     title={title}

@@ -16,7 +16,6 @@ export default function Planner() {
         setModalOpen(false);
     }
 
-
     // 백엔드 test 데이터 가져와보기
     // const [test, setTest] = useState('');
 
