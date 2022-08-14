@@ -3,9 +3,6 @@ import axios from "axios";
 
 
 export default function EditAcountForm(props) {
-
-    console.log(props.title);
-    console.log(props.iDate);
     const [Date, setDate] = useState(props.iDate); // props.iDate(itemDatetime)
     const [Title, setTitle] = useState(props.title);
     const [Price, setPrice] = useState(props.price);

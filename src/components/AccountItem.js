@@ -4,6 +4,11 @@ import Modal from "./Modal";
 import EditAcountForm from "./EditAccountForm";
 import { Link } from "react-router-dom";
 
+// pId값 플래너 페이지 이동하면서 넘겨주는 함수
+export const isPlanner = () => {
+    return sessionStorage.getItem('pId')
+}
+
 export default function AccountItem({ id, uId, cDate, iDate, kind, title, price, category, cWord, second, pId }, props) {
 
     // 수정 modal 창
@@ -33,23 +38,12 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
             })
     }
 
-    const [schedules, setSchedules] = useState([]);
-
-    // 플래너 내역 전체 데이터 가져오기
-    const getSchedules = async () => {
-        console.log("before");
-        const json = await (await axios.get('/auth/planner/item', config));
-        console.log("after");
-        setSchedules(json.data);
-    };
-    useEffect(() => {
-        getSchedules();
-    }, []);
-    console.log(schedules);
 
     const onShowSchedule = (e) => {
-        console.log(pId)
-        console.log(schedules[pId])
+        console.log(pId + '가계부:일정보기 버튼 누르기 전')
+        // console.log(schedules[pId])
+        sessionStorage.setItem('pId', pId)
+        console.log(pId + '가계부:일정보기 버튼 누른 후');
 
         // axios.get(`auth/planner/item/${pId}`, config)
         // plannerList[pId]
