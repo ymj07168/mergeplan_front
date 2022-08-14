@@ -100,7 +100,7 @@ export default function Account(props) {
                         <table className='account-table'>
                             <thead>
                                 <tr>
-                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th></th><th></th>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th></th><th></th><th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -127,8 +127,7 @@ export default function Account(props) {
                         <table className='account-table'>
                             <thead>
                                 <tr>
-                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
-                                    <th></th><th></th>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th></th><th></th><th></th>
                                 </tr>
                             </thead>
                             <tbody>

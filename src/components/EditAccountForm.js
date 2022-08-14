@@ -33,7 +33,7 @@ export default function EditAcountForm(props) {
         setCategory(Number(e.target.id))
     }
 
-    const onAtEditSubmit = (e) => {
+    const onEditAccount = (e) => {
 
         let data = {
             id: props.id,
@@ -68,7 +68,7 @@ export default function EditAcountForm(props) {
 
 
     return (
-        <form onSubmit={onAtEditSubmit}>
+        <form onSubmit={onEditAccount}>
             날짜 : <input type="datetime-local" style={{ width: 270 }} value={Date} onChange={onDateHandler} /><br />
             내역 : <input type="text" style={{ width: 270 }} value={Title} onChange={onTitleHandler} /><br />
             금액 : <input type="text" name="amount" style={{ width: 270 }} value={Price} onChange={onPriceHandler} /><br />
