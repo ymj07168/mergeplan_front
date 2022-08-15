@@ -27,6 +27,7 @@ function Schedule(props) {
     // const myEventList = props.plannerList;
     const myEventList = props.plannerList.map((schedule) => (
         {
+            plannerId: schedule.plannerId,
             userId: schedule.userId,
             allDay: 0,
             start: new Date(schedule.start),
@@ -34,24 +35,28 @@ function Schedule(props) {
             title: schedule.title,
             category: schedule.category,
             description: schedule.description,
-            itemFirstWord: schedule.itemFirstWord
+            itemFirstWord: schedule.itemFirstWord,
+            createDate: schedule.createDate
         }
     ));
 
+
     // 일정 클릭시 셋팅 변수
-    const [id, setId] = useState('');
+    const [plannerId, setPlannerId] = useState('');
+    const [uId, setUId] = useState('');
     const [title, setTitle] = useState('');
     const [start, setStart] = useState('');
     const [end, setEnd] = useState('');
     const [category, setCategory] = useState(1);
     const [description, setDescription] = useState('');
+    const [cDate, setCDate] = useState('');
 
 
     // 일정 이벤트 클릭 시 변수 셋팅
     const openModal = (e) => {
         setModalOpen(true);
-        // console.log(e.id)
-        // setId(e.id);
+        setPlannerId(e.plannerId);
+        setUId(e.userId)
         setTitle(e.title);
         setCategory(e.category);
         setDescription(e.description);
@@ -59,6 +64,10 @@ function Schedule(props) {
         var e = e.end;
         setStart(s.getFullYear() + '-' + String(s.getMonth() + 1).padStart(2, "0") + '-' + s.getDate() + 'T' + s.getHours() + ":" + String(s.getMinutes()).padStart(2, "0"));
         setEnd(e.getFullYear() + '-' + String(e.getMonth() + 1).padStart(2, "0") + '-' + e.getDate() + 'T' + e.getHours() + ":" + String(e.getMinutes()).padStart(2, "0"));
+        setCDate(e.createDate);
+        console.log("get start setStart")
+        console.log(s.getFullYear() + '-' + String(s.getMonth() + 1).padStart(2, "0") + '-' + s.getDate() + 'T' + s.getHours() + ":" + String(s.getMinutes()).padStart(2, "0"))
+
     }
 
 
@@ -82,12 +91,14 @@ function Schedule(props) {
             />
             <Modal open={modalOpen} close={closeModal} header="일정 상세보기" >
                 <EditScheduleForm
-                    id={id}
+                    plannerId={plannerId}
+                    uId={uId}
                     title={title}
-                    start={start}
-                    end={end}
+                    start={start.substr(0, 10).concat(' ' + start.substr(11, 16)) + ':00'}
+                    end={end.substr(0, 10).concat(' ' + end.substr(11, 16)) + ':00'}
                     category={category}
                     description={description}
+                    cDate={cDate}
                 />
             </Modal>
         </div>

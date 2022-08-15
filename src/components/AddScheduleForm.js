@@ -26,8 +26,6 @@ export default function AddScheduleForm(props) {
     const onStartHandler = (e) => {
         setStart((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
         // setStart(e.target.value)
-        console.log(new Date(e.target.value))
-        console.log(new Date(2022, 5, 2, 3, 4, 0))
         console.log((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
     }
 
@@ -46,7 +44,7 @@ export default function AddScheduleForm(props) {
 
 
     const onSdSubmit = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
         let data = {
             allday: 0,
