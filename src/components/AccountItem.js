@@ -42,7 +42,7 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
     const onShowSchedule = (e) => {
         console.log(pId + '가계부:일정보기 버튼 누르기 전')
         // console.log(schedules[pId])
-        sessionStorage.setItem('pId', pId)
+        sessionStorage.setItem('pId', 16)
         console.log(pId + '가계부:일정보기 버튼 누른 후');
 
         // axios.get(`auth/planner/item/${pId}`, config)

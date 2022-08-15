@@ -3,18 +3,21 @@ import axios from "axios";
 
 export default function EditScheduleForm(props) {
 
-    const [id, setId] = useState("");
+    const [plannerId, setPId] = useState(props.plannerId);
+    const [uId, setUId] = useState(props.uId);
     const [title, setTitle] = useState(props.title);
     const [start, setStart] = useState(props.start);
     const [end, setEnd] = useState(props.end);
-    const [description, setDescription] = useState(props.description)
-    const [category, setCategory] = useState(props.category)
+    const [description, setDescription] = useState(props.description);
+    const [category, setCategory] = useState(props.category);
+    const [cDate, setCDate] = useState(props.cDate);
 
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
     }
 
     const onStartHandler = (e) => {
+        console.log(e.target.value)
         setStart((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
         // setStart(e.target.value)
         console.log(new Date(e.target.value))
@@ -24,6 +27,7 @@ export default function EditScheduleForm(props) {
 
     const onEndHandler = (e) => {
         setEnd((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
+        console.log((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
         // setEnd(e.target.value)
     }
 
@@ -44,19 +48,24 @@ export default function EditScheduleForm(props) {
 
     // 일정 수정 버튼
     const onEditSchedule = (e) => {
+        e.preventDefault();
         let data = {
+            userId: uId,
             allday: 0,
-            title: title,
             start: start,
             end: end,
+            title: title,
             description: description,
-            category: category,
+            createDate: cDate,
+            itemFirst: category,
         }
 
 
-        axios.patch(`/auth/accounts/item/${id}`, data, config)
+        axios.patch(`/auth/planner/item/${plannerId}`, data, config)
             .then((result) => {
                 console.log(result)
+                console.log(start)
+                console.log(end)
                 alert('내역이 수정되었습니다.')
             })
             .catch(err => console.log(err))
@@ -64,16 +73,16 @@ export default function EditScheduleForm(props) {
 
     // 일정 삭제 버튼
     const onDelSchedule = (e) => {
-        axios.delete(`/auth/planner/item/${id}`, config)
+        axios.delete(`/auth/planner/item/${plannerId}`, config)
             .then((result) => {
                 alert('삭제 성공')
-                console.log(id)
+                console.log(plannerId)
                 window.location.reload();
             })
     }
 
     return (
-        <form>
+        <form onSubmit={onEditSchedule}>
             <table>
                 <thead></thead>
                 <tbody>
@@ -107,7 +116,7 @@ export default function EditScheduleForm(props) {
                     </tr>
                 </tbody>
             </table>
-            <input type="button" value="수정" onClick={onEditSchedule} />
+            <input type="submit" value="수정" />
             <input type="button" value="삭제" onClick={onDelSchedule} />
         </form>
     )
