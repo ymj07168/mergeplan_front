@@ -5,6 +5,7 @@ import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
 import AccountItem from '../components/AccountItem';
+import { isAccount } from '../components/EditScheduleForm';
 
 
 export default function Account(props) {
@@ -60,6 +61,8 @@ export default function Account(props) {
     const incomeList = accountList.filter(item => item.itemKind == false);
     const expensesList = accountList.filter(item => item.itemKind == true);
 
+    console.log(incomeList)
+
     // 수입 지출 총액 가져오기
     axios.get(`/auth/accounts/item/total/${year}/${totalMonth}`, config)
         .then(
@@ -111,7 +114,9 @@ export default function Account(props) {
                                         category={income.itemFirst}
                                         cWord={income.itemFirstWord}
                                         second={income.itemSecond}
-                                        pId={income.plannerId} />
+                                        pId={income.planner != null ? income.planner.id : ''}
+                                        pTitle={income.planner != null ? income.planner.title : 'null'}
+                                    />
                                 ))}
                             </tbody>
                         </table>
@@ -138,7 +143,8 @@ export default function Account(props) {
                                         category={expense.itemFirst}
                                         cWord={expense.itemFirstWord}
                                         second={expense.itemSecond}
-                                        pId={expense.plannerId}
+                                        pId={expense.planner != null ? expense.planner.id : ''}
+                                        pTitle={expense.planner != null ? expense.planner.title : 'null'}
                                     />
                                 ))}
                             </tbody>
