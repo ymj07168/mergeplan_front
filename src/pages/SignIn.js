@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import '../App.css';
 import axios from 'axios';
-
+import { Link } from 'react-router-dom';
 
 export default function SignIn(props) {
 
@@ -86,6 +86,8 @@ export default function SignIn(props) {
                         <input type="text" name="id" className="text-field" size="80" id="userid" placeholder="아이디" onChange={onIdHandler}></input> <br></br>
                         <input type="password" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
                         <input type="submit" value="로그인하기" onClick={onClickLogin} className="submit-btn"></input> <br></br>
+                        <Link to='/sign-up' ><input type="button" value="회원가입하기" className="submit-btnG"></input> <br></br>
+                        </Link>
                     </form>
                 </div>
             </div>

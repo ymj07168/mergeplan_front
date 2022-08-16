@@ -141,7 +141,7 @@ export default function AddScheduleForm(props) {
                         </tr>
                     </tbody>
                 </table>
-                <input type="submit" id="btn-add-schedule" value="일정추가" />
+                <input type="submit" className="add-schedule-submit-btn" id="btn-add-schedule" value="일정추가" />
             </form>
 
         </>
