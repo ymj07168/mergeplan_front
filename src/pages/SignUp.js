@@ -37,7 +37,6 @@ export default function SignUp() {
             username: Id,
             password: Pw,
             cpassword: CPw,
-            username: Name,
             birthday: Date
         }
         // if (Pw == "1111") {
@@ -49,6 +48,7 @@ export default function SignUp() {
         axios.post('/join', body)
             .then(response => {
                 console.log(body)
+                alert('회원가입이 완료되었습니다.')
             })
     }
 
