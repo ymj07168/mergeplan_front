@@ -223,9 +223,52 @@
 
 /* account 내역 리스트 css */
 .histories {
-  background-color: antiquewhite;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(400px, 1fr));
+  grid-gap: 80px;
+  padding: 50px;
+  width: 100%;
+  padding-top: 70px;
   border-radius: 10px;
+}
+
+
+@media screen and (max-width: 1090px) {
+  .histories {
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+}
+
+.history {
+  background-color: white;
+  margin-bottom: 70px;
+  font-weight: 300;
+  padding: 20px;
+  border-radius: 5px;
+  color: #adaeb9;
+  display: grid;
+  grid-template-rows: minmax(10px, 2fr) 1fr;
+  grid-gap: 10px;
+  color: inherit;
+  box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+    0 8px 16px -8px rgba(0, 0, 0, 0.3), 0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+}
+
+/* account table css */
+.account-table {
+  width: 100%;
+  border-top: 1px solid #444444;
+  border-collapse: collapse;
+  empty-cells: show;
 
 }
+
+th,
+td {
+  border-bottom: 1px solid #444444;
+  padding: 10px;
+}
+
 
 /* account div 박스 css */

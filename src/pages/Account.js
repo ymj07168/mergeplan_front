@@ -102,70 +102,69 @@ export default function Account(props) {
                 <br /><br />
                 <h1>Account</h1>
                 <div className='histories'>
-                    <div className='account-inner'>
-                        <div className='account-front'>
-                            <h2>income</h2>
-                            <table className='account-table'>
-                                <thead>
-                                    <tr>
-                                        <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {incomeList.map((income) => (
-                                        <AccountItem
-                                            key={income.id}
-                                            id={income.id}
-                                            uId={income.userId}
-                                            cDate={income.createDatetime}
-                                            iDate={income.itemDatetime}
-                                            title={income.itemTitle}
-                                            price={income.itemPrice}
-                                            kind={income.itemKind}
-                                            category={income.itemFirst}
-                                            cWord={income.itemFirstWord}
-                                            second={income.itemSecond}
-                                            pId={income.plannerId} />
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
-                        <div className='account-'>
-                            <h2>expenses</h2>
-                            <table className='account-table'>
-                                <thead>
-                                    <tr>
-                                        <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {expensesList.map((expense) => (
-                                        <AccountItem
-                                            key={expense.id}
-                                            id={expense.id}
-                                            uId={expense.userId}
-                                            cDate={expense.createDatetime}
-                                            iDate={expense.itemDatetime}
-                                            title={expense.itemTitle}
-                                            price={expense.itemPrice}
-                                            kind={expense.itemKind}
-                                            category={expense.itemFirst}
-                                            cWord={expense.itemFirstWord}
-                                            second={expense.itemSecond}
-                                            pId={expense.plannerId}
-                                        />
-                                    ))}
-                                </tbody>
-                            </table>
-                        </div>
+                    <div className='history'>
+                        <h2>income</h2>
+                        <table className='account-table'>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {incomeList.map((income) => (
+                                    <AccountItem
+                                        key={income.id}
+                                        id={income.id}
+                                        uId={income.userId}
+                                        cDate={income.createDatetime}
+                                        iDate={income.itemDatetime}
+                                        title={income.itemTitle}
+                                        price={income.itemPrice}
+                                        kind={income.itemKind}
+                                        category={income.itemFirst}
+                                        cWord={income.itemFirstWord}
+                                        second={income.itemSecond}
+                                        pId={income.plannerId} />
+                                ))}
+                            </tbody>
+                        </table>
+                    </div>
+                    <div className='history'>
+                        <h2>expenses</h2>
+                        <table className='account-table'>
+                            <thead>
+                                <tr>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {expensesList.map((expense) => (
+                                    <AccountItem
+                                        key={expense.id}
+                                        id={expense.id}
+                                        uId={expense.userId}
+                                        cDate={expense.createDatetime}
+                                        iDate={expense.itemDatetime}
+                                        title={expense.itemTitle}
+                                        price={expense.itemPrice}
+                                        kind={expense.itemKind}
+                                        category={expense.itemFirst}
+                                        cWord={expense.itemFirstWord}
+                                        second={expense.itemSecond}
+                                        pId={expense.plannerId}
+                                    />
+                                ))}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <p>
-
-                    이 페이지는 가계부 페이지입니다.
-                    account
-                </p>
             </div>
+            <p>
+
+                이 페이지는 가계부 페이지입니다.
+                account
+            </p>
+
         </>
     )
 }
