@@ -145,12 +145,13 @@ export default function Account(props) {
                         </table>
                     </div>
                 </div>
-                <p>
-
-                    이 페이지는 가계부 페이지입니다.
-                    account
-                </p>
             </div>
+            <p>
+
+                이 페이지는 가계부 페이지입니다.
+                account
+            </p>
+
         </>
     )
 }

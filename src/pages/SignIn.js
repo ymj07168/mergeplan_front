@@ -18,7 +18,7 @@ export default function SignIn(props) {
     }
 
     const onClickLogin = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
 
         let data = {
             username: Id,
@@ -86,8 +86,6 @@ export default function SignIn(props) {
                         <input type="text" name="id" className="text-field" size="80" id="userid" placeholder="아이디" onChange={onIdHandler}></input> <br></br>
                         <input type="password" name="password" className="text-field" size="80" id="userpw" placeholder="비밀번호" onChange={onPwHandler}></input> <br></br>
                         <input type="submit" value="로그인하기" onClick={onClickLogin} className="submit-btn"></input> <br></br>
-                        <input type="button" value="아이디/비밀번호 찾기" className="submit-btn"></input> <br></br>
-                        <input type="button" value="구글계정으로 로그인" className="submit-btnG"></input> <br></br>
                     </form>
                 </div>
             </div>
