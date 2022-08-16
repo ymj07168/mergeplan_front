@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+export const isAccount = () => {
+    return sessionStorage.getItem('aId')
+}
 
 export default function EditScheduleForm(props) {
 
