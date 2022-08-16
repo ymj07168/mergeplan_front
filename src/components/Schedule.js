@@ -106,4 +106,3 @@ function Schedule(props) {
 }
 
 export default Schedule;
-
