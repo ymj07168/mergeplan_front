@@ -3,6 +3,8 @@ import '../App.css';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
 
 
 export default function AddScheduleForm(props) {
@@ -79,7 +81,10 @@ export default function AddScheduleForm(props) {
 
     }
 
-
+    const options = [
+        'one', 'two', 'three', 'four', 'ffff'
+    ];
+    const defaultOption = options[0];
 
     return (
         <>
@@ -139,6 +144,7 @@ export default function AddScheduleForm(props) {
                         </tr>
                     </tbody>
                 </table>
+                <Dropdown options={options} value={defaultOption} placeholder="Select an option" />
                 <input type="submit" id="btn-add-schedule" value="일정추가" />
             </form>
 

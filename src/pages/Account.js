@@ -89,7 +89,7 @@ export default function Account(props) {
                 <br /><br />
                 <h1>Account</h1>
                 <div className='histories'>
-                    <div className='history'>
+                    <div>
                         <h2>income</h2>
                         <table className='account-table'>
                             <thead>
@@ -116,7 +116,7 @@ export default function Account(props) {
                             </tbody>
                         </table>
                     </div>
-                    <div className='history'>
+                    <div>
                         <h2>expenses</h2>
                         <table className='account-table'>
                             <thead>
