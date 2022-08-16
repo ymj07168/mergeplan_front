@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 
+
 export default function EditScheduleForm(props) {
 
     const [plannerId, setPId] = useState(props.plannerId);
@@ -81,6 +82,17 @@ export default function EditScheduleForm(props) {
             })
     }
 
+    const selectList = ['apple', 'banana', 'grape', 'oragnge'];
+    const [Selected, setSelected] = useState('');
+
+    const handleSelect = (e) => {
+        setSelected(e.target.value);
+    };
+
+    const onShowAccount = (e) => {
+        //
+    }
+
     return (
         <form onSubmit={onEditSchedule}>
             <table>
@@ -116,8 +128,16 @@ export default function EditScheduleForm(props) {
                     </tr>
                 </tbody>
             </table>
+            <select onChange={handleSelect} value={Selected}>
+                {selectList.map((item) => (
+                    <option value={item} key={item}>
+                        {item}
+                    </option>
+                ))}
+            </select>
+            <input type="button" value="연관 가계부 내역 보기" onClick={onShowAccount} /><br />
             <input type="submit" value="수정" />
             <input type="button" value="삭제" onClick={onDelSchedule} />
-        </form>
+        </form >
     )
 }

@@ -81,7 +81,6 @@ export default function Planner() {
                         pId={plannerOpen}
                     />
                 </Modal>
-
             </div>
         </>
     );
