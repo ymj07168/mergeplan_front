@@ -5,6 +5,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
 
 
+
 export default function AddScheduleForm(props) {
 
     const [title, setTitle] = useState("");
@@ -79,7 +80,8 @@ export default function AddScheduleForm(props) {
 
     }
 
-
+    var searchNames = ['Sydney', 'Melbourne', 'Brisbane',
+        'Adelaide', 'Perth', 'Hobart'];
 
     return (
         <>
