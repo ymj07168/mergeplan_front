@@ -48,6 +48,7 @@ export default function SignUp() {
         axios.post('/join', body)
             .then(response => {
                 console.log(body)
+                alert('회원가입이 완료되었습니다.')
             })
     }
 

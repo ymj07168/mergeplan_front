@@ -38,16 +38,12 @@ export default function Account(props) {
 
     // 가계부 내역 전체 데이터 가져오기
     const getHistories = async () => {
-        console.log("before");
         const json = await (await axios.get('/auth/accounts/item', config));
-        console.log("after");
         setHistories(json.data);
     };
     useEffect(() => {
         getHistories();
     }, []);
-    console.log(histories);
-
 
     // 년월 변경시 년월 정보 가져오기
     const [month, setMonth] = useState('2022-08');
@@ -68,21 +64,12 @@ export default function Account(props) {
     axios.get(`/auth/accounts/item/total/${year}/${totalMonth}`, config)
         .then(
             result => {
-                console.log(result)
                 setIncome(result.data.income)
                 setExpenses(result.data.expenses)
             }
         )
         .catch(error => console.log(error)
-
         )
-
-
-    // // 수입 지출 분리
-    // const incomeList = histories.filter(history => history.itemKind == false);
-    // const expensesList = histories.filter(history => history.itemKind == true);
-
-
 
     return (
         <>
@@ -107,7 +94,7 @@ export default function Account(props) {
                         <table className='account-table'>
                             <thead>
                                 <tr>
-                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th></th><th></th><th></th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -134,7 +121,7 @@ export default function Account(props) {
                         <table className='account-table'>
                             <thead>
                                 <tr>
-                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th>
+                                    <th>날짜</th><th>내역</th><th>분류</th><th>금액</th><th></th><th></th><th></th>
                                 </tr>
                             </thead>
                             <tbody>
