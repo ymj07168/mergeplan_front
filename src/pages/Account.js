@@ -6,9 +6,21 @@ import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
 import AccountItem from '../components/AccountItem';
 import { isAccount } from '../components/EditScheduleForm';
+import ShowAccountForm from '../components/ShowAccountForm';
 
 
 export default function Account(props) {
+
+    console.log('가계부:넘겨받은 aId값 확인')
+    console.log(isAccount());
+    const [aId, setAId] = useState(isAccount());
+    const [accountOpen, setAccountOpen] = useState(isAccount());
+    const closeAccount = () => {
+        setAccountOpen(false);
+        sessionStorage.setItem('aId', '');
+        console.log('닫힌 후 aId 값 0 확인')
+        console.log(isAccount())
+    }
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("");
@@ -61,7 +73,6 @@ export default function Account(props) {
     const incomeList = accountList.filter(item => item.itemKind == false);
     const expensesList = accountList.filter(item => item.itemKind == true);
 
-    console.log(incomeList)
 
     // 수입 지출 총액 가져오기
     axios.get(`/auth/accounts/item/total/${year}/${totalMonth}`, config)
@@ -73,6 +84,7 @@ export default function Account(props) {
         )
         .catch(error => console.log(error)
         )
+
 
     return (
         <>
@@ -151,6 +163,18 @@ export default function Account(props) {
                         </table>
                     </div>
                 </div>
+
+                <p>
+                    이 페이지는 가계부 페이지입니다.
+                    account
+                </p>
+                <Modal open={accountOpen} close={closeAccount} header="일정 상세보기">
+                    <ShowAccountForm
+                        aId={accountOpen}
+                        accountList={histories}
+                    />
+                </Modal>
+
             </div>
 
 

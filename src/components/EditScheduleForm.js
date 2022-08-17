@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export const isAccount = () => {
     return sessionStorage.getItem('aId')
@@ -15,7 +16,11 @@ export default function EditScheduleForm(props) {
     const [description, setDescription] = useState(props.description);
     const [category, setCategory] = useState(props.category);
     const [cDate, setCDate] = useState(props.cDate);
+    const [accountItem, setAccountItem] = useState(props.accountsItemPs);
 
+    // console.log(props.uId)
+    // console.log(props.title)
+    // console.log(props.accountsItemPs)
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
     }
@@ -85,15 +90,22 @@ export default function EditScheduleForm(props) {
             })
     }
 
-    const selectList = ['apple', 'banana', 'grape', 'oragnge'];
-    const [Selected, setSelected] = useState('');
+    const selectList = accountItem;
+    const [Selected, setSelected] = useState(' ');
 
-    const handleSelect = (e) => {
+    const onChangeSelect = (e) => {
         setSelected(e.target.value);
+        console.log(e.target.value);
+        console.log(Selected)
     };
 
+    const onClickSelect = (e) => {
+        setSelected(e.target.value);
+    }
+
+    // 연관 가계부 내역 보기
     const onShowAccount = (e) => {
-        //
+        sessionStorage.setItem('aId', Selected);
     }
 
     return (
@@ -131,14 +143,14 @@ export default function EditScheduleForm(props) {
                     </tr>
                 </tbody>
             </table>
-            <select onChange={handleSelect} value={Selected}>
-                {selectList.map((item) => (
-                    <option value={item} key={item}>
-                        {item}
+            <select onChange={onChangeSelect} onClick={onClickSelect} value={Selected}>
+                {accountItem && accountItem.length > 0 ? (accountItem.map((item) => (
+                    <option value={item.id} key={item.id}>
+                        {item.itemTitle}
                     </option>
-                ))}
+                ))) : null}
             </select>
-            <input type="button" value="연관 가계부 내역 보기" onClick={onShowAccount} /><br />
+            <Link to='/account'><button onClick={onShowAccount}>연관 가계부 내역 보기</button></Link><br />
             <input type="submit" value="수정" />
             <input type="button" value="삭제" onClick={onDelSchedule} />
         </form >

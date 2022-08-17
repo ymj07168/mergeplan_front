@@ -1,6 +1,6 @@
 import { render } from "@testing-library/react";
 import moment from "moment";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import Modal from "./Modal";
@@ -27,7 +27,7 @@ function Schedule(props) {
     // const myEventList = props.plannerList;
     const myEventList = props.plannerList.map((schedule) => (
         {
-            plannerId: schedule.plannerId,
+            plannerId: schedule.id,
             userId: schedule.userId,
             allDay: 0,
             start: new Date(schedule.start),
@@ -36,10 +36,19 @@ function Schedule(props) {
             category: schedule.category,
             description: schedule.description,
             itemFirstWord: schedule.itemFirstWord,
-            createDate: schedule.createDate
+            createDate: schedule.createDate,
+            accountsItemPs: schedule.accountsItemPs.map((item) => ({
+                id: item.id,
+                userId: item.userId,
+                itemTitle: item.itemTitle,
+                plannerId: item.plannerId
+            }))
+            // accountsItemPs: schedule.accountsItemPs
         }
     ));
 
+    console.log("myEvent")
+    console.log(myEventList)
 
     // 일정 클릭시 셋팅 변수
     const [plannerId, setPlannerId] = useState('');
@@ -50,6 +59,7 @@ function Schedule(props) {
     const [category, setCategory] = useState(1);
     const [description, setDescription] = useState('');
     const [cDate, setCDate] = useState('');
+    const [accountItem, setAccountItem] = useState([]);
 
 
     // 일정 이벤트 클릭 시 변수 셋팅
@@ -60,16 +70,25 @@ function Schedule(props) {
         setTitle(e.title);
         setCategory(e.category);
         setDescription(e.description);
-        var s = e.start;
-        var e = e.end;
-        setStart(s.getFullYear() + '-' + String(s.getMonth() + 1).padStart(2, "0") + '-' + s.getDate() + 'T' + s.getHours() + ":" + String(s.getMinutes()).padStart(2, "0"));
-        setEnd(e.getFullYear() + '-' + String(e.getMonth() + 1).padStart(2, "0") + '-' + e.getDate() + 'T' + e.getHours() + ":" + String(e.getMinutes()).padStart(2, "0"));
-        setCDate(e.createDate);
-        console.log("get start setStart")
-        console.log(s.getFullYear() + '-' + String(s.getMonth() + 1).padStart(2, "0") + '-' + s.getDate() + 'T' + s.getHours() + ":" + String(s.getMinutes()).padStart(2, "0"))
+        var start = e.start;
+        var end = e.end;
+        setStart(start.getFullYear() + '-' + String(start.getMonth() + 1).padStart(2, "0") + '-' + start.getDate() + 'T' + start.getHours() + ":" + String(start.getMinutes()).padStart(2, "0"));
+        setEnd(end.getFullYear() + '-' + String(end.getMonth() + 1).padStart(2, "0") + '-' + end.getDate() + 'T' + end.getHours() + ":" + String(end.getMinutes()).padStart(2, "0"));
+        setCDate(end.createDate);
 
+        setAccountItem(e.accountsItemPs)
+        // setAccountItem((e.accountsItemPs).map((item) => ({
+        //     id: item.id,
+        //     userId: item.userId,
+        //     itemTitle: item.itemTitle,
+        //     plannerId: item.plannerId
+        // })))
+
+        console.log("ㅋ")
+        console.log(e.accountsItemPs)
+        console.log("ㅁ")
+        console.log(accountItem)
     }
-
 
     let config = {
         headers: {
@@ -99,6 +118,7 @@ function Schedule(props) {
                     category={category}
                     description={description}
                     cDate={cDate}
+                    accountsItemPs={accountItem}
                 />
             </Modal>
         </div>
