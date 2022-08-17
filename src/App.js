@@ -23,6 +23,7 @@ function App() {
           <PublicRoute restricted component={SignIn} path='/sign-in' exact />
           <PublicRoute restricted component={SignUp} path='/sign-up' exact />
           {/* <Route path='/sign-up' component={SignUp} /> */}
+
         </Switch>
       </Router>
     </>

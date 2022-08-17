@@ -44,3 +44,27 @@
     transition: all 0.3s ease-out;
 
 }
+
+.signin-signup-btn {
+    border: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 300px;
+    background-color: rgb(202, 202, 202);
+    box-shadow: 0 4px 16px rgba(110, 173, 163, 0.3);
+    transition: 0.3s;
+}
+
+.signin-signup-btn:focus {
+    outline: 0;
+}
+
+.signin-signup-btn:hover {
+    background: rgba(91, 91, 91, 0.9);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+
+}

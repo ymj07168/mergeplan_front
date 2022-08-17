@@ -148,7 +148,7 @@
   margin: 10px;
   border: 0;
   background-color: rgb(202, 202, 202);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
   transition: 0.3s;
 }
 
@@ -159,7 +159,8 @@
 .account-addbtn:hover {
   background: rgba(145, 145, 145, 0.9);
   cursor: pointer;
-  box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  ;
 }
 
 .add-plan-btn {
@@ -229,12 +230,14 @@
   padding: 50px;
   width: 100%;
   padding-top: 70px;
+
 }
 
 @media screen and (max-width: 1090px) {
   .histories {
     grid-template-columns: 1fr;
     width: 100%;
+
   }
 }
 
@@ -259,6 +262,7 @@
   border-top: 1px solid #444444;
   border-collapse: collapse;
   empty-cells: show;
+
 }
 
 table.account-table th {
@@ -270,6 +274,35 @@ table.account-table td {
   border-bottom: 1px solid #444444;
   padding: 10px;
 }
+
+.back-img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.add-schedule-submit-btn {
+  width: 50%;
+  height: 35px;
+  margin: 10px;
+  border: 0;
+  background-color: rgb(217, 217, 217);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.add-schedule-submit-btn:focus {
+  outline: 0;
+}
+
+.add-schedule-submit-btn:hover {
+  background: rgba(107, 112, 110, 0.9);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+
+}
+
+
 
 
 /* account div 박스 css */

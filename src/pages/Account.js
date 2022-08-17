@@ -5,9 +5,22 @@ import Modal from '../components/Modal';
 import AddAcountForm from '../components/AddAccountForm';
 import axios from 'axios';
 import AccountItem from '../components/AccountItem';
+import { isAccount } from '../components/EditScheduleForm';
+import ShowAccountForm from '../components/ShowAccountForm';
 
 
 export default function Account(props) {
+
+    console.log('가계부:넘겨받은 aId값 확인')
+    console.log(isAccount());
+    const [aId, setAId] = useState(isAccount());
+    const [accountOpen, setAccountOpen] = useState(isAccount());
+    const closeAccount = () => {
+        setAccountOpen(false);
+        sessionStorage.setItem('aId', '');
+        console.log('닫힌 후 aId 값 0 확인')
+        console.log(isAccount())
+    }
 
     // 총수입, 총지출 변수
     const [income, setIncome] = useState("");
@@ -60,6 +73,7 @@ export default function Account(props) {
     const incomeList = accountList.filter(item => item.itemKind == false);
     const expensesList = accountList.filter(item => item.itemKind == true);
 
+
     // 수입 지출 총액 가져오기
     axios.get(`/auth/accounts/item/total/${year}/${totalMonth}`, config)
         .then(
@@ -70,6 +84,7 @@ export default function Account(props) {
         )
         .catch(error => console.log(error)
         )
+
 
     return (
         <>
@@ -111,7 +126,9 @@ export default function Account(props) {
                                         category={income.itemFirst}
                                         cWord={income.itemFirstWord}
                                         second={income.itemSecond}
-                                        pId={income.plannerId} />
+                                        pId={income.planner != null ? income.planner.id : ''}
+                                        pTitle={income.planner != null ? income.planner.title : 'null'}
+                                    />
                                 ))}
                             </tbody>
                         </table>
@@ -138,19 +155,29 @@ export default function Account(props) {
                                         category={expense.itemFirst}
                                         cWord={expense.itemFirstWord}
                                         second={expense.itemSecond}
-                                        pId={expense.plannerId}
+                                        pId={expense.planner != null ? expense.planner.id : ''}
+                                        pTitle={expense.planner != null ? expense.planner.title : 'null'}
                                     />
                                 ))}
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <p>
 
+                <p>
                     이 페이지는 가계부 페이지입니다.
                     account
                 </p>
+                <Modal open={accountOpen} close={closeAccount} header="일정 상세보기">
+                    <ShowAccountForm
+                        aId={accountOpen}
+                        accountList={histories}
+                    />
+                </Modal>
+
             </div>
+
+
         </>
     )
 }

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 
@@ -9,6 +9,34 @@ export default function AddAcountForm(props) {
     const [Price, setPrice] = useState(0);
     const [Kind, setKind] = useState(0)
     const [Category, setCategory] = useState(1)
+
+
+    // 플래너 모든 데이터 가져와서 schedules 변수에 저장
+    const [schedules, setSchedules] = useState([]);
+    let config = {
+        headers: {
+            'Authorization': sessionStorage.getItem('token'),
+            'content-type': 'application/json;charset=UTF-8'
+        }
+    }
+    const getSchedules = async () => {
+        const json = await (await axios.get('/auth/planner/item', config));
+        setSchedules(json.data);
+    };
+    useEffect(() => {
+        getSchedules();
+    }, []);
+    console.log(schedules);
+
+    // const selectList = schedules.map((item) => (title = item.title, key = item.plannerId))
+    const selectList = schedules;
+    console.log(selectList)
+
+    const [Selected, setSelected] = useState('');
+
+    const handleSelect = (e) => {
+        setSelected(e.target.value);
+    };
 
 
     const onDateHandler = (e) => {
@@ -36,15 +64,6 @@ export default function AddAcountForm(props) {
 
     const onAtSubmit = (e) => {
         // e.preventDefault();
-
-        // let data = {
-        //     "itemDatetime": '2022-08-07 20:00:00',
-        //     "itemKind": 1,
-        //     "itemFirst": 5,
-        //     "itemTitle": "치킨",
-        //     "itemPrice": 20000
-        // }
-
 
         console.log(String(Date).substr(0, 7))
         let data = {
@@ -82,6 +101,13 @@ export default function AddAcountForm(props) {
             <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="3" />Shopping
             <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="4" />Dining
             <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" />Trip<br />
+            <select onChange={handleSelect} value={Selected}>
+                {selectList.map((item) => (
+                    <option value={item.title} key={item.plannerId}>
+                        {item.title}
+                    </option>
+                ))}
+            </select><br />
             <input type="submit" id="btn-add-schedule" value="일정추가" />
 
         </form >
