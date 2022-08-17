@@ -143,6 +143,7 @@ export default function EditScheduleForm(props) {
                     </tr>
                 </tbody>
             </table>
+            연관 가계부 내역:
             <select onChange={onChangeSelect} onClick={onClickSelect} value={Selected}>
                 {accountItem && accountItem.length > 0 ? (accountItem.map((item) => (
                     <option value={item.id} key={item.id}>
@@ -150,7 +151,7 @@ export default function EditScheduleForm(props) {
                     </option>
                 ))) : null}
             </select>
-            <Link to='/account'><button onClick={onShowAccount}>연관 가계부 내역 보기</button></Link><br />
+            <Link to='/account'><input type="button" onClick={onShowAccount} value="보기" /></Link><br />
             <input type="submit" value="수정" />
             <input type="button" value="삭제" onClick={onDelSchedule} />
         </form >
