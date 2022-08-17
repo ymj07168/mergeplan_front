@@ -31,6 +31,7 @@ export default function AddAcountForm(props) {
     // const selectList = schedules.map((item) => (title = item.title, key = item.plannerId))
     const selectList = schedules;
     console.log(selectList)
+
     const [Selected, setSelected] = useState('');
 
     const handleSelect = (e) => {
@@ -63,15 +64,6 @@ export default function AddAcountForm(props) {
 
     const onAtSubmit = (e) => {
         // e.preventDefault();
-
-        // let data = {
-        //     "itemDatetime": '2022-08-07 20:00:00',
-        //     "itemKind": 1,
-        //     "itemFirst": 5,
-        //     "itemTitle": "치킨",
-        //     "itemPrice": 20000
-        // }
-
 
         console.log(String(Date).substr(0, 7))
         let data = {

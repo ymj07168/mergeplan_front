@@ -12,7 +12,7 @@ export default function Planner() {
     // 가계부에서 pId 값 넘겨받기 isPlanner()
     console.log('플래너:넘겨받은 pId값 확인')
     console.log(isPlanner());
-    const [pId, setPId] = useState(isPlanner())
+    const [pId, setPId] = useState(isPlanner());
     const [plannerOpen, setPlannerOpen] = useState(isPlanner());
     const closeSchedule = () => {
         setPlannerOpen(false);
