@@ -1,0 +1,49 @@
+.edit-account-change-btn {
+    border: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    background-color: rgb(181, 210, 187);
+    box-shadow: 0 4px 16px rgba(13, 13, 13, 0.3);
+    transition: 0.3s;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+
+.edit-account-change-btn:focus {
+    outline: 0;
+}
+
+.edit-account-change-btn:hover {
+    background: rgb(137, 200, 149);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+}
+
+/*  */
+.edit-account-del-btn {
+    border: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 130px;
+    background-color: rgb(231, 182, 182);
+    box-shadow: 0 4px 16px rgba(13, 13, 13, 0.3);
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.edit-account-del-btn:focus {
+    outline: 0;
+}
+
+.edit-account-del-btn:hover {
+    background: rgb(231, 151, 151);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+}

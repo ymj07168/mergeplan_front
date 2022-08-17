@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import './EditScheduleForm.css';
 
 export const isAccount = () => {
     return sessionStorage.getItem('aId')
@@ -151,8 +152,8 @@ export default function EditScheduleForm(props) {
                 ))) : null}
             </select>
             <Link to='/account'><button onClick={onShowAccount}>연관 가계부 내역 보기</button></Link><br />
-            <input type="submit" value="수정" />
-            <input type="button" value="삭제" onClick={onDelSchedule} />
+            <input type="submit" className="edit-account-change-btn" value="수정" />
+            <input type="button" className="edit-account-del-btn" value="삭제" onClick={onDelSchedule} />
         </form >
     )
 }
