@@ -68,7 +68,7 @@ export default function SignUp() {
                         <input type="date" name="birthday" className="text-field" size="80" id="userDate" placeholder='생년월일' onChange={onDateHandler} /><br />
                         <input type="checkbox" name="idSave" value="save" />서비스 약관에 동의합니다. <br></br>
                         <input type="submit" value="가입하기" className="submit-btn" onClick={onClickJoin}></input> <br></br>
-                        <input type="button" value="구글계정으로 로그인" className="submit-btnG" ></input> <br></br>
+                        <br></br>
                     </form>
                 </div>
             </div>
