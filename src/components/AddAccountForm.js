@@ -36,6 +36,7 @@ export default function AddAcountForm(props) {
 
     const changeSelect = (e) => {
         setSelected(e.target.value);
+        console.log(e.target.value);
     };
 
     const clickSelect = (e) => {
@@ -67,7 +68,7 @@ export default function AddAcountForm(props) {
     }
 
     const onAtSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         console.log(String(Date).substr(0, 7))
         let data = {
@@ -76,7 +77,7 @@ export default function AddAcountForm(props) {
             itemFirst: Category,
             itemTitle: Title,
             itemPrice: Price,
-            plannerId: 13
+            plannerId: Selected
         }
 
         let config = {
@@ -109,7 +110,7 @@ export default function AddAcountForm(props) {
             연관 플래너 일정 선택:
             <select onChange={changeSelect} onClick={clickSelect} value={Selected}>
                 {selectList.map((item) => (
-                    <option value={item.plannerId} key={item.plannerId}>
+                    <option value={item.id} key={item.id}>
                         {item.title}
                     </option>
                 ))}

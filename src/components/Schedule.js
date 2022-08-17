@@ -41,14 +41,12 @@ function Schedule(props) {
                 id: item.id,
                 userId: item.userId,
                 itemTitle: item.itemTitle,
+                itemDatetime: item.itemDatetime,
                 plannerId: item.plannerId
             }))
             // accountsItemPs: schedule.accountsItemPs
         }
     ));
-
-    console.log("myEvent")
-    console.log(myEventList)
 
     // 일정 클릭시 셋팅 변수
     const [plannerId, setPlannerId] = useState('');
@@ -83,11 +81,6 @@ function Schedule(props) {
         //     itemTitle: item.itemTitle,
         //     plannerId: item.plannerId
         // })))
-
-        console.log("ㅋ")
-        console.log(e.accountsItemPs)
-        console.log("ㅁ")
-        console.log(accountItem)
     }
 
     let config = {

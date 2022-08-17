@@ -18,8 +18,6 @@ export default function Account(props) {
     const closeAccount = () => {
         setAccountOpen(false);
         sessionStorage.setItem('aId', '');
-        console.log('닫힌 후 aId 값 0 확인')
-        console.log(isAccount())
     }
 
     // 총수입, 총지출 변수
