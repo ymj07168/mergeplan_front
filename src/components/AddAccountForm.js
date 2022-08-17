@@ -34,9 +34,14 @@ export default function AddAcountForm(props) {
 
     const [Selected, setSelected] = useState('');
 
-    const handleSelect = (e) => {
+    const changeSelect = (e) => {
         setSelected(e.target.value);
+        console.log(e.target.value);
     };
+
+    const clickSelect = (e) => {
+        setSelected(e.target.value);
+    }
 
 
     const onDateHandler = (e) => {
@@ -71,7 +76,8 @@ export default function AddAcountForm(props) {
             itemKind: Kind,
             itemFirst: Category,
             itemTitle: Title,
-            itemPrice: Price
+            itemPrice: Price,
+            plannerId: Selected
         }
 
         let config = {
@@ -101,9 +107,10 @@ export default function AddAcountForm(props) {
             <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="3" />Shopping
             <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="4" />Dining
             <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" />Trip<br />
-            <select onChange={handleSelect} value={Selected}>
+            연관 플래너 일정 선택:
+            <select onChange={changeSelect} onClick={clickSelect} value={Selected}>
                 {selectList.map((item) => (
-                    <option value={item.title} key={item.plannerId}>
+                    <option value={item.id} key={item.id}>
                         {item.title}
                     </option>
                 ))}

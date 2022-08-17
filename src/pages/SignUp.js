@@ -33,8 +33,8 @@ export default function SignUp() {
     const onClickJoin = (e) => {
         e.preventDefault();
         let body = {
-            username_k: Name,
-            username: Id,
+            username: Name,
+            nickname: Id,
             password: Pw,
             cpassword: CPw,
             birthday: Date

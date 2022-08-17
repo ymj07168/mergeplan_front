@@ -18,10 +18,10 @@ export default function SignIn(props) {
     }
 
     const onClickLogin = (e) => {
-        //e.preventDefault();
+        // e.preventDefault();
 
         let data = {
-            username: Id,
+            nickname: Id,
             password: Pw
         }
 
