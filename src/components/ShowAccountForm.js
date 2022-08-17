@@ -9,9 +9,14 @@ export default function ShowAccountForm(props) {
     console.log('hh')
 
     const [id, setId] = useState(props.aId);
-    const [accountItem, setAccountItem] = useState([]);
+    const [accountItem, setAccountItem] = useState('');
     console.log("헬로월드")
     console.log(props.accountItem);
+
+    const [Date, setDate] = useState();
+    const onDateHandler = (e) => {
+        setDate((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
+    }
 
     let config = {
         headers: {
@@ -21,7 +26,7 @@ export default function ShowAccountForm(props) {
     }
 
     const getAccountItem = async () => {
-        const json = await (await axios.get(`/auth/accounts/item/${id}`, config));
+        const json = await (await axios.get(`/auth/account/item/${id}`, config));
         setAccountItem(json.data);
     };
     useEffect(() => {
@@ -30,9 +35,8 @@ export default function ShowAccountForm(props) {
 
 
     // const accountItem = props.accountList.filter(item => item.id == id);
-    // console.log(accountItem.id)
-    // console.log(accountItem.itemTitle)
-    // console.log(accountItem.itemDatetime)
+    console.log(accountItem.id);
+    console.log(accountItem.itemDatetime);
     // const [Date, setDate] = useState(accountItem.itemDatetime); // props.iDate(itemDatetime)
     // const [Title, setTitle] = useState(accountItem.itemTitle);
     // const [Price, setPrice] = useState(accountItem.itemPrice);
@@ -42,9 +46,9 @@ export default function ShowAccountForm(props) {
 
     return (
         <form >
-            날짜 : <input type="datetime-local" style={{ width: 270 }} value={accountItem.itemDatetime} /><br />
+            날짜 : <input type="datetime-local" style={{ width: 270 }} value={accountItem.itemDateTime} /><br />
             내역 : <input type="text" style={{ width: 270 }} value={accountItem.itemTitle} /><br />
-            금액 : <input type="text" name="amount" style={{ width: 270 }} value={accountItem[0].itemPrice} /><br />
+            금액 : <input type="text" name="amount" style={{ width: 270 }} value={accountItem.itemPrice} /><br />
             수입 <input type="radio" name="kind" id="0" checked={Number(accountItem.itemKind) == 0} /> 지출 <input type="radio" name="kind" id="1" checked={Number(accountItem.itemKind) == 1} /><br />
             분류 : <input type="radio" name="Types" value="Work" id="1" checked={Number(accountItem.itemFirst) == 1} />Work
             <input type="radio" name="Types" value="Party" id="2" checked={Number(accountItem.itemFirst) == 2} />Party
