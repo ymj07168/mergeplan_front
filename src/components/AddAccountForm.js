@@ -101,6 +101,7 @@ export default function AddAcountForm(props) {
             <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="3" />Shopping
             <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="4" />Dining
             <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" />Trip<br />
+            연관 플래너 일정 선택:
             <select onChange={handleSelect} value={Selected}>
                 {selectList.map((item) => (
                     <option value={item.title} key={item.plannerId}>
