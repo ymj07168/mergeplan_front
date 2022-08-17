@@ -15,19 +15,19 @@ function Cards() {
                             src={interImg}
                             text='mergeplan은 가계부와 플래너의 연동기능이 가능해요.'
                             label='2 in 1 서비스'
-                            path='/services'
+                            path='/'
                         />
                         <CardItem
                             src={plannerImg}
                             text='나만의 구분을 만들어 일정들을 손쉽게 관리할 수 있어요.'
                             label='다양한 일정을 한눈에'
-                            path='/products'
+                            path='/planner'
                         />
                         <CardItem
                             src={accountImg}
                             text='일별, 주간별, 월별 구분 뿐만아니라 사용자 지정기간, 지출 종류별로 다양하게 확인할 수 있어요.'
                             label='수입과 지출을 간편하게!'
-                            path='/sign-up'
+                            path='/account'
                         />
                     </ul>
                 </div>
