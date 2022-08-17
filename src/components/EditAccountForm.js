@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-
+import './EditAccountForm.css';
 
 export default function EditAcountForm(props) {
     const [Date, setDate] = useState(props.iDate); // props.iDate(itemDatetime)
@@ -75,7 +75,7 @@ export default function EditAcountForm(props) {
             <input type="radio" name="Types" value="Shopping" onChange={onCategoryHandler} id="3" checked={Number(Category) == 3} />Shopping
             <input type="radio" name="Types" value="Dining" onChange={onCategoryHandler} id="4" checked={Number(Category) == 4} />Dining
             <input type="radio" name="Types" value="Trip" onChange={onCategoryHandler} id="5" checked={Number(Category) == 5} />Trip<br />
-            <input type="submit" id="btn-add-schedule" value="수정하기" />
+            <input type="submit" className="btn-add-schedule" value="수정하기" />
         </form >
     )
 }

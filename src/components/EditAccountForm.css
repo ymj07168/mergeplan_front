@@ -1,0 +1,23 @@
+.btn-add-schedule {
+    border: 0;
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    width: 317px;
+    background-color: rgb(214, 214, 214);
+    box-shadow: 0 4px 16px rgba(13, 13, 13, 0.3);
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.btn-add-schedule:focus {
+    outline: 0;
+}
+
+.btn-add-schedule:hover {
+    background: rgba(155, 155, 155, 0.9);
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+}
