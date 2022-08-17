@@ -28,14 +28,10 @@ function Navbar() {
 
     window.addEventListener('resize', showButton);
     const isLogin = isAdmin();
-<<<<<<< HEAD
-
-=======
     const onLogout = () => {
         sessionStorage.removeItem("token")
         window.location.reload();
     }
->>>>>>> 7460dd288ec4937daff60435a3682a88bcf7db86
     return (
         <>
             <nav className='navbar'>
@@ -65,15 +61,9 @@ function Navbar() {
                             </Link>
                         </li>
 
-<<<<<<< HEAD
-
-                        {isLogin ? <> <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
-=======
                         {isLogin ? <li><Link to='/sign-in' className='nav-links-mobile' onClick={onLogout}>
->>>>>>> 7460dd288ec4937daff60435a3682a88bcf7db86
                             로그아웃
-                        </Link></> : <><li className='nav-item'>
-
+                        </Link></li> : <><li className='nav-item'>
                             <Link to='/sign-in' className='nav-links-mobile' onClick={closeMobileMenu}>
                                 로그인
                             </Link>
@@ -85,18 +75,9 @@ function Navbar() {
                             </li></>}
 
                     </ul>
-<<<<<<< HEAD
-                    {isLogin ? <>{button && <Link to='/planner' className='btn-mobile'><Button buttonStyle='btn--outline'>로그아웃</Button></Link>}</> :
-
-                        <>{button && <Link to='/sign-iny' className='btn-mobile'><Button buttonStyle='btn--outline'>로그인</Button></Link>}
-=======
                     {isLogin ? <>{button && <Link to='/' className='btn-mobile'><Button buttonStyle='btn--outline' onClick={onLogout}>로그아웃</Button></Link>}</> :
                         <>{button && <Link to='/sign-in' className='btn-mobile'><Button buttonStyle='btn--outline'>로그인</Button></Link>}
->>>>>>> 7460dd288ec4937daff60435a3682a88bcf7db86
                             {button && <Link to='/sign-up' className='btn-mobile'><Button buttonStyle='btn--outline'>회원가입</Button></Link>}</>}
-                    {/* {button && <Link to='/sign-in' className='btn-mobile'><Button buttonStyle='btn--outline'>로그인</Button></Link>}
-                    {button && <Link to='/sign-up' className='btn-mobile'><Button buttonStyle='btn--outline'>회원가입</Button></Link>} */}
-
                 </div>
             </nav>
         </>
