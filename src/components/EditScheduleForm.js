@@ -146,7 +146,7 @@ export default function EditScheduleForm(props) {
                 ))) : null}
             </select>
 
-            <Link to='/account'><button onClick={onShowAccount}>연관 가계부 내역 보기</button></Link><br />
+            <Link to='/account'><input type="button" onClick={onShowAccount} value="보기" /></Link><br /><br />
             <input type="submit" className="edit-account-change-btn" value="수정" />
             <input type="button" className="edit-account-del-btn" value="삭제" onClick={onDelSchedule} />
 

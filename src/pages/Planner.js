@@ -67,7 +67,6 @@ export default function Planner() {
                 <Schedule plannerList={schedules} />
 
                 <button className="planner-addbtn" onClick={openModal}>일정 추가하기</button>
-
                 <Modal open={modalOpen} close={closeModal} header="일정 추가하기">
                     <AddScheduleForm />
                 </Modal>

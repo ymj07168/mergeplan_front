@@ -161,11 +161,6 @@ export default function Account(props) {
                         </table>
                     </div>
                 </div>
-
-                <p>
-                    이 페이지는 가계부 페이지입니다.
-                    account
-                </p>
                 <Modal open={accountOpen} close={closeAccount} header="일정 상세보기">
                     <ShowAccountForm
                         aId={accountOpen}

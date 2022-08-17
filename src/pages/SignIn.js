@@ -41,7 +41,7 @@ export default function SignIn(props) {
                 console.log(data)
 
                 if (result.status == 200) {
-                    alert('로그인 성공')
+                    alert('로그인이 완료되었습니다.')
                     sessionStorage.setItem('token', result.headers.authorization)
                     props.history.push('/')
 
