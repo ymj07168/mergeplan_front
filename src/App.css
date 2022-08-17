@@ -275,6 +275,33 @@ table.account-table td {
   padding: 10px;
 }
 
+.back-img {
+  width: 100%;
+  height: 100%;
+  opacity: 0.5;
+}
+
+.add-schedule-submit-btn {
+  width: 50%;
+  height: 35px;
+  margin: 10px;
+  border: 0;
+  background-color: rgb(217, 217, 217);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: 0.3s;
+}
+
+.add-schedule-submit-btn:focus {
+  outline: 0;
+}
+
+.add-schedule-submit-btn:hover {
+  background: rgba(107, 112, 110, 0.9);
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(11, 19, 13, 0.6);
+
+}
+
 
 
 

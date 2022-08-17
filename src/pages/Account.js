@@ -175,6 +175,8 @@ export default function Account(props) {
                     />
                 </Modal>
 
+            </div>
+
 
         </>
     )
