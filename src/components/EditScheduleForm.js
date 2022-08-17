@@ -20,7 +20,7 @@ export default function EditScheduleForm(props) {
 
     // console.log(props.uId)
     // console.log(props.title)
-    // console.log(props.accountsItemPs)
+    console.log(props.accountsItemPs)
     const onTitleHandler = (e) => {
         setTitle(e.target.value)
     }
@@ -29,8 +29,6 @@ export default function EditScheduleForm(props) {
         console.log(e.target.value)
         setStart((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
         // setStart(e.target.value)
-        console.log(new Date(e.target.value))
-        console.log(new Date(2022, 5, 2, 3, 4, 0))
         console.log((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
     }
 
@@ -73,8 +71,6 @@ export default function EditScheduleForm(props) {
         axios.patch(`/auth/planner/item/${plannerId}`, data, config)
             .then((result) => {
                 console.log(result)
-                console.log(start)
-                console.log(end)
                 alert('내역이 수정되었습니다.')
             })
             .catch(err => console.log(err))
@@ -85,7 +81,6 @@ export default function EditScheduleForm(props) {
         axios.delete(`/auth/planner/item/${plannerId}`, config)
             .then((result) => {
                 alert('삭제 성공')
-                console.log(plannerId)
                 window.location.reload();
             })
     }
@@ -95,8 +90,6 @@ export default function EditScheduleForm(props) {
 
     const onChangeSelect = (e) => {
         setSelected(e.target.value);
-        console.log(e.target.value);
-        console.log(Selected)
     };
 
     const onClickSelect = (e) => {
@@ -147,7 +140,7 @@ export default function EditScheduleForm(props) {
             <select onChange={onChangeSelect} onClick={onClickSelect} value={Selected}>
                 {accountItem && accountItem.length > 0 ? (accountItem.map((item) => (
                     <option value={item.id} key={item.id}>
-                        {item.itemTitle}
+                        {item.itemDatetime} {item.itemTitle}
                     </option>
                 ))) : null}
             </select>

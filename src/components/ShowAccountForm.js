@@ -4,14 +4,8 @@ import React, { useState, useEffect } from "react";
 export default function ShowAccountForm(props) {
 
     // 플래너 해당 아이디 데이터 가져오기
-    console.log("gg")
-    console.log(props.aId)
-    console.log('hh')
-
     const [id, setId] = useState(props.aId);
     const [accountItem, setAccountItem] = useState('');
-    console.log("헬로월드")
-    console.log(props.accountItem);
 
     const [Date, setDate] = useState();
     const onDateHandler = (e) => {
@@ -35,8 +29,6 @@ export default function ShowAccountForm(props) {
 
 
     // const accountItem = props.accountList.filter(item => item.id == id);
-    console.log(accountItem.id);
-    console.log(accountItem.itemDatetime);
     // const [Date, setDate] = useState(accountItem.itemDatetime); // props.iDate(itemDatetime)
     // const [Title, setTitle] = useState(accountItem.itemTitle);
     // const [Price, setPrice] = useState(accountItem.itemPrice);

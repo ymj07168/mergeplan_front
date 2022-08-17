@@ -10,15 +10,11 @@ import ShowScheduleForm from '../components/ShowScheduleForm';
 export default function Planner() {
 
     // 가계부에서 pId 값 넘겨받기 isPlanner()
-    console.log('플래너:넘겨받은 pId값 확인')
-    console.log(isPlanner());
     const [pId, setPId] = useState(isPlanner());
     const [plannerOpen, setPlannerOpen] = useState(isPlanner());
     const closeSchedule = () => {
         setPlannerOpen(false);
         sessionStorage.setItem('pId', '');
-        console.log('닫힌 후 pId 값 0 확인')
-        console.log(isPlanner())
     }
 
 
@@ -63,7 +59,6 @@ export default function Planner() {
     useEffect(() => {
         getSchedules();
     }, []);
-    console.log(schedules);
 
 
     return (

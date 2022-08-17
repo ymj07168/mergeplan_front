@@ -45,7 +45,7 @@ export default function AddScheduleForm(props) {
 
 
     const onSdSubmit = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
 
         let data = {
             allday: 0,
