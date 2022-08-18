@@ -117,7 +117,7 @@ export default function AddAcountForm(props) {
                     </option>
                 ))}
             </select><br />
-            <input type="submit" className="add-account-submit-btn" value="일정추가" />
+            <input type="submit" className="add-account-submit-btn" value="내역추가" />
 
         </form >
     )

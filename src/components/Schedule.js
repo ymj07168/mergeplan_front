@@ -62,6 +62,7 @@ function Schedule(props) {
 
     // 일정 이벤트 클릭 시 변수 셋팅
     const openModal = (e) => {
+
         setModalOpen(true);
         setPlannerId(e.plannerId);
         setUId(e.userId)
@@ -70,8 +71,8 @@ function Schedule(props) {
         setDescription(e.description);
         var start = e.start;
         var end = e.end;
-        setStart(start.getFullYear() + '-' + String(start.getMonth() + 1).padStart(2, "0") + '-' + String(start.getDate()).padStart(2, "0") + 'T' + start.getHours() + ":" + String(start.getMinutes()).padStart(2, "0"));
-        setEnd(end.getFullYear() + '-' + String(end.getMonth() + 1).padStart(2, "0") + '-' + String(end.getDate()).padStart(2, "0") + 'T' + end.getHours() + ":" + String(end.getMinutes()).padStart(2, "0"));
+        setStart(start.getFullYear() + '-' + String(start.getMonth() + 1).padStart(2, "0") + '-' + String(start.getDate()).padStart(2, "0") + 'T' + String(start.getHours()).padStart(2, "0") + ":" + String(start.getMinutes()).padStart(2, "0"));
+        setEnd(end.getFullYear() + '-' + String(end.getMonth() + 1).padStart(2, "0") + '-' + String(end.getDate()).padStart(2, "0") + 'T' + String(end.getHours()).padStart(2, "0") + ":" + String(end.getMinutes()).padStart(2, "0"));
         setCDate(end.createDate);
 
         setAccountItem(e.accountsItemPs)

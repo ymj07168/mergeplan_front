@@ -161,7 +161,7 @@ export default function Account(props) {
                         </table>
                     </div>
                 </div>
-                <Modal open={accountOpen} close={closeAccount} header="일정 상세보기">
+                <Modal open={accountOpen} close={closeAccount} header="내역 상세보기">
                     <ShowAccountForm
                         aId={accountOpen}
                         accountList={histories}

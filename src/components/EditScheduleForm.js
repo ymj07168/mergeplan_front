@@ -73,6 +73,7 @@ export default function EditScheduleForm(props) {
             .then((result) => {
                 console.log(result)
                 alert('일정이 수정되었습니다.')
+                window.location.reload();
             })
             .catch(err => console.log(err))
     }

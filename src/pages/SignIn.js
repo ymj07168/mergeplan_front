@@ -44,6 +44,7 @@ export default function SignIn(props) {
                     alert('로그인이 완료되었습니다.')
                     sessionStorage.setItem('token', result.headers.authorization)
                     props.history.push('/')
+                    window.location.reload()
 
                     //console.log(sessionStorage.getItem('token'))
                     // action or redirect
