@@ -56,7 +56,7 @@ export default function EditScheduleForm(props) {
 
     // 일정 수정 버튼
     const onEditSchedule = (e) => {
-        e.preventDefault();
+        // e.preventDefault();
         let data = {
             userId: uId,
             allday: 0,
@@ -72,7 +72,7 @@ export default function EditScheduleForm(props) {
         axios.patch(`/auth/planner/item/${plannerId}`, data, config)
             .then((result) => {
                 console.log(result)
-                alert('내역이 수정되었습니다.')
+                alert('일정이 수정되었습니다.')
             })
             .catch(err => console.log(err))
     }
@@ -81,7 +81,7 @@ export default function EditScheduleForm(props) {
     const onDelSchedule = (e) => {
         axios.delete(`/auth/planner/item/${plannerId}`, config)
             .then((result) => {
-                alert('삭제 성공')
+                alert('일정이 삭제되었습니다.')
                 window.location.reload();
             })
     }

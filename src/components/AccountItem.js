@@ -32,7 +32,7 @@ export default function AccountItem({ id, uId, cDate, iDate, kind, title, price,
     const onDelete = (e) => {
         axios.delete(`/auth/accounts/item/${id}`, config)
             .then((result) => {
-                alert('삭제 성공')
+                alert('내역이 삭제되었습니다.')
                 console.log(id)
                 window.location.reload();
             })

@@ -47,7 +47,6 @@ export default function ShowAccountForm(props) {
             <input type="radio" name="Types" value="Shopping" id="3" checked={Number(accountItem.itemFirst) == 3} />Shopping
             <input type="radio" name="Types" value="Dining" id="4" checked={Number(accountItem.itemFirst) == 4} />Dining
             <input type="radio" name="Types" value="Trip" id="5" checked={Number(accountItem.itemFirst) == 5} />Trip<br />
-            <input type="submit" id="btn-add-schedule" value="수정하기" />
         </form >
     )
 }

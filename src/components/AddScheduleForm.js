@@ -80,8 +80,6 @@ export default function AddScheduleForm(props) {
 
     }
 
-    var searchNames = ['Sydney', 'Melbourne', 'Brisbane',
-        'Adelaide', 'Perth', 'Hobart'];
 
     return (
         <>
