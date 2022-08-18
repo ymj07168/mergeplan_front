@@ -70,11 +70,13 @@ function Schedule(props) {
         setDescription(e.description);
         var start = e.start;
         var end = e.end;
-        setStart(start.getFullYear() + '-' + String(start.getMonth() + 1).padStart(2, "0") + '-' + start.getDate() + 'T' + start.getHours() + ":" + String(start.getMinutes()).padStart(2, "0"));
-        setEnd(end.getFullYear() + '-' + String(end.getMonth() + 1).padStart(2, "0") + '-' + end.getDate() + 'T' + end.getHours() + ":" + String(end.getMinutes()).padStart(2, "0"));
+        setStart(start.getFullYear() + '-' + String(start.getMonth() + 1).padStart(2, "0") + '-' + String(start.getDate()).padStart(2, "0") + 'T' + start.getHours() + ":" + String(start.getMinutes()).padStart(2, "0"));
+        setEnd(end.getFullYear() + '-' + String(end.getMonth() + 1).padStart(2, "0") + '-' + String(end.getDate()).padStart(2, "0") + 'T' + end.getHours() + ":" + String(end.getMinutes()).padStart(2, "0"));
         setCDate(end.createDate);
 
         setAccountItem(e.accountsItemPs)
+        console.log(start)
+        console.log(end)
         // setAccountItem((e.accountsItemPs).map((item) => ({
         //     id: item.id,
         //     userId: item.userId,

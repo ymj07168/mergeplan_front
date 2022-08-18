@@ -25,6 +25,7 @@ export default function AddScheduleForm(props) {
     }
 
     const onStartHandler = (e) => {
+        console.log(e.target.value)
         setStart((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))
         // setStart(e.target.value)
         console.log((e.target.value).substr(0, 10).concat(' ' + (e.target.value).substr(11.16) + ':00'))

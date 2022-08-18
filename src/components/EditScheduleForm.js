@@ -56,7 +56,7 @@ export default function EditScheduleForm(props) {
 
     // 일정 수정 버튼
     const onEditSchedule = (e) => {
-        // e.preventDefault();
+        e.preventDefault();
         let data = {
             userId: uId,
             allday: 0,
